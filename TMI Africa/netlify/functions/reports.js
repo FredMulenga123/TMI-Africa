@@ -1,0 +1,1 @@
+export async function handler(){return{statusCode:200,headers:{'Content-Type':'application/json'},body:JSON.stringify([{title:'DRC–Zambia Cobalt Corridor Risk Watch',period:'May 2026'},{title:'Copperbelt Supplier Integrity Bulletin',period:'Q2 2026'}])}}

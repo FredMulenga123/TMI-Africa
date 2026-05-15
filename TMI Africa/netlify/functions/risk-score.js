@@ -1,0 +1,1 @@
+export async function handler(event){const payload=JSON.parse(event.body||'{}');const flags=[payload.sanctions,payload.adverseMedia,payload.missingDocs].filter(Boolean).length;const score=flags>=2?'High':flags===1?'Medium':'Low';return{statusCode:200,headers:{'Content-Type':'application/json'},body:JSON.stringify({risk:score,flags})}}

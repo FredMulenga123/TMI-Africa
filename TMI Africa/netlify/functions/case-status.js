@@ -1,0 +1,1 @@
+export async function handler(event){const id=event.queryStringParameters?.id||'TMI-2026-001';return{statusCode:200,headers:{'Content-Type':'application/json'},body:JSON.stringify({id,status:'In Review',risk:'Medium',nextStep:'Analyst review and evidence validation'})}}

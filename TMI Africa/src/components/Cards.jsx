@@ -1,0 +1,2 @@
+export function Card({children,className=''}){return <div className={`bg-white rounded-3xl shadow-sm border border-slate-200 p-5 ${className}`}>{children}</div>}
+export function Badge({children,tone='slate'}){const m={High:'bg-red-100 text-red-700',Medium:'bg-amber-100 text-amber-700',Low:'bg-emerald-100 text-emerald-700',slate:'bg-slate-100 text-slate-700'};return <span className={`text-xs px-2 py-1 rounded-full ${m[tone]||m.slate}`}>{children}</span>}
