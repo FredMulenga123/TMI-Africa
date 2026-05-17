@@ -1,3 +1,37 @@
-import React,{useState} from 'react';import{createRoot}from'react-dom/client';import'./index.css';import{Layout}from'./components/Layout';import Dashboard from './pages/Dashboard';import Portal from './pages/Portal';import Verification from './pages/Verification';import Reports from './pages/Reports';import Api from './pages/Api';import Governance from './pages/Governance';import Licences from './pages/Licences';import Opportunities from './pages/Opportunities';import DataImport from './pages/DataImport';import PPP from './pages/PPP';import Corridors from './pages/Corridors';
-function App(){const[page,setPage]=useState('dashboard');const pages={dashboard:<Dashboard/>,portal:<Portal/>,verification:<Verification/>,reports:<Reports/>,api:<Api/>,governance:<Governance/>,licences:<Licences/>,opportunities:<Opportunities/>,ppp:<PPP/>,corridors:<Corridors/>,import:<DataImport/>};return <Layout page={page} setPage={setPage}>{pages[page]}</Layout>}
-createRoot(document.getElementById('root')).render(<App/>);
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+function App() {
+  return (
+    <main
+      style={{
+        padding: "40px",
+        background: "#0f172a",
+        color: "white",
+        minHeight: "100vh",
+        fontFamily: "Arial"
+      }}
+    >
+      <h1>TerraNova Mining Intelligence (TMI)</h1>
+
+      <p>tmi.africa is live.</p>
+
+      <h3>Core Modules</h3>
+
+      <ul>
+        <li>Cancelled Licence Intelligence</li>
+        <li>Zambia + DRC datasets</li>
+        <li>PPP Intelligence</li>
+        <li>Corridor Intelligence</li>
+        <li>Investor Screening</li>
+        <li>Mining Opportunity Mapping</li>
+      </ul>
+    </main>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
