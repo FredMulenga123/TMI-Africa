@@ -16,13 +16,12 @@ function App() {
   return (
     <main
       style={{
-        fontFamily: "Arial",
+        fontFamily:"Arial",
         background:"#081426",
         color:"white",
         minHeight:"100vh"
       }}
     >
-
       <header
         style={{
           display:"flex",
@@ -32,18 +31,21 @@ function App() {
           borderBottom:"1px solid #1e293b"
         }}
       >
-        <img
-          src="/terranova-logo.png"
-          alt="TerraNova"
-          style={{height:"70px"}}
-        />
+        <div>
+          <h2 style={{margin:0,color:"#f97316"}}>
+            TerraNova
+          </h2>
 
-        <nav style={{display:"flex",gap:"30px"}}>
+          <small style={{color:"#94a3b8"}}>
+            Mining Intelligence & Asset Management
+          </small>
+        </div>
+
+        <nav style={{display:"flex",gap:"25px"}}>
           <span>Dashboard</span>
           <span>Zambia</span>
           <span>DRC</span>
           <span>PPP</span>
-          <span>Investors</span>
           <span>Reports</span>
         </nav>
       </header>
@@ -70,37 +72,25 @@ function App() {
             maxWidth:"900px"
           }}
         >
-          TerraNova Mining Intelligence helps investors,
-          banks, mining operators and development partners
-          identify opportunities, monitor risks and map
-          strategic assets across Zambia, DRC and regional corridors.
+          TerraNova Mining Intelligence helps
+          investors, banks, mining operators
+          and development partners identify
+          opportunities, monitor risks and map
+          strategic assets across Zambia, DRC
+          and regional corridors.
         </p>
 
-        <div style={{marginTop:"30px"}}>
-          <button
-            style={{
-              padding:"14px 24px",
-              borderRadius:"10px",
-              marginRight:"15px",
-              border:"none",
-              fontWeight:"bold"
-            }}
-          >
-            Request Intelligence Brief
-          </button>
-
-          <button
-            style={{
-              padding:"14px 24px",
-              borderRadius:"10px",
-              background:"transparent",
-              color:"white",
-              border:"1px solid white"
-            }}
-          >
-            Access Platform
-          </button>
-        </div>
+        <button
+          style={{
+            padding:"14px 22px",
+            marginTop:"30px",
+            borderRadius:"10px",
+            border:"none",
+            fontWeight:"bold"
+          }}
+        >
+          Request Intelligence Brief
+        </button>
       </section>
 
       <section
@@ -109,7 +99,7 @@ function App() {
           display:"grid",
           gap:"20px",
           gridTemplateColumns:
-          "repeat(auto-fit,minmax(250px,1fr))"
+          "repeat(auto-fit,minmax(240px,1fr))"
         }}
       >
         {modules.map((item)=>(
@@ -118,24 +108,23 @@ function App() {
             style={{
               background:"#1e293b",
               padding:"25px",
-              borderRadius:"18px"
+              borderRadius:"16px"
             }}
           >
             <h3>{item}</h3>
 
             <p style={{color:"#cbd5e1"}}>
               Strategic intelligence module
-              for investment and mining
+              for mining and investment
               decision-making.
             </p>
           </div>
         ))}
       </section>
-
     </main>
   );
 }
 
 ReactDOM.createRoot(
- document.getElementById("root")
+document.getElementById("root")
 ).render(<App />);
