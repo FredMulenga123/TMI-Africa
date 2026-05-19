@@ -14,37 +14,128 @@ const modules = [
 
 function App() {
   return (
-    <main style={{ fontFamily: "Arial", background: "#0f172a", color: "white", minHeight: "100vh" }}>
-      <section style={{ padding: "70px 40px", maxWidth: "1100px" }}>
-        <p style={{ color: "#38bdf8", fontWeight: "bold" }}>TMI.AFRICA</p>
+    <main
+      style={{
+        fontFamily: "Arial",
+        background:"#081426",
+        color:"white",
+        minHeight:"100vh"
+      }}
+    >
 
-        <h1 style={{ fontSize: "48px", lineHeight: "1.1", maxWidth: "900px" }}>
-          Mining, Infrastructure & Strategic Investment Intelligence for Africa
+      <header
+        style={{
+          display:"flex",
+          justifyContent:"space-between",
+          alignItems:"center",
+          padding:"20px 40px",
+          borderBottom:"1px solid #1e293b"
+        }}
+      >
+        <img
+          src="/terranova-logo.png"
+          alt="TerraNova"
+          style={{height:"70px"}}
+        />
+
+        <nav style={{display:"flex",gap:"30px"}}>
+          <span>Dashboard</span>
+          <span>Zambia</span>
+          <span>DRC</span>
+          <span>PPP</span>
+          <span>Investors</span>
+          <span>Reports</span>
+        </nav>
+      </header>
+
+      <section
+        style={{
+          padding:"70px 40px",
+          maxWidth:"1200px"
+        }}
+      >
+        <h1
+          style={{
+            fontSize:"58px",
+            lineHeight:"1.1"
+          }}
+        >
+          Investment Intelligence for Africa
         </h1>
 
-        <p style={{ fontSize: "20px", maxWidth: "850px", color: "#cbd5e1" }}>
-          TerraNova Mining Intelligence helps investors, banks, mining operators and
-          development partners identify opportunities, monitor risks and map strategic
-          assets across Zambia, DRC and regional corridors.
+        <p
+          style={{
+            fontSize:"22px",
+            color:"#cbd5e1",
+            maxWidth:"900px"
+          }}
+        >
+          TerraNova Mining Intelligence helps investors,
+          banks, mining operators and development partners
+          identify opportunities, monitor risks and map
+          strategic assets across Zambia, DRC and regional corridors.
         </p>
 
-        <button style={{ padding: "14px 22px", marginTop: "24px", borderRadius: "10px", border: "none", fontWeight: "bold" }}>
-          Request Intelligence Brief
-        </button>
+        <div style={{marginTop:"30px"}}>
+          <button
+            style={{
+              padding:"14px 24px",
+              borderRadius:"10px",
+              marginRight:"15px",
+              border:"none",
+              fontWeight:"bold"
+            }}
+          >
+            Request Intelligence Brief
+          </button>
+
+          <button
+            style={{
+              padding:"14px 24px",
+              borderRadius:"10px",
+              background:"transparent",
+              color:"white",
+              border:"1px solid white"
+            }}
+          >
+            Access Platform
+          </button>
+        </div>
       </section>
 
-      <section style={{ padding: "20px 40px 60px", display: "grid", gap: "20px", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))" }}>
-        {modules.map((item) => (
-          <div key={item} style={{ background: "#1e293b", padding: "24px", borderRadius: "16px", border: "1px solid #334155" }}>
+      <section
+        style={{
+          padding:"20px 40px 80px",
+          display:"grid",
+          gap:"20px",
+          gridTemplateColumns:
+          "repeat(auto-fit,minmax(250px,1fr))"
+        }}
+      >
+        {modules.map((item)=>(
+          <div
+            key={item}
+            style={{
+              background:"#1e293b",
+              padding:"25px",
+              borderRadius:"18px"
+            }}
+          >
             <h3>{item}</h3>
-            <p style={{ color: "#cbd5e1" }}>
-              Strategic intelligence module for mining, PPP, corridor and investment decision-making.
+
+            <p style={{color:"#cbd5e1"}}>
+              Strategic intelligence module
+              for investment and mining
+              decision-making.
             </p>
           </div>
         ))}
       </section>
+
     </main>
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(
+ document.getElementById("root")
+).render(<App />);
