@@ -15,6 +15,7 @@ function App() {
       <h1>TerraNova Mining Intelligence (TMI)</h1>
 
       <p>tmi.africa is live.</p>
+      <p>Deployment test successful.</p>
 
       <h3>Core Modules</h3>
 
