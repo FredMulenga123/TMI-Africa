@@ -12,6 +12,13 @@ const modules = [
   ["Premium Reports", "Generate investor-ready intelligence briefs and opportunity reports."]
 ];
 
+const metrics = [
+  ["2,500+", "Licence records"],
+  ["Zambia + DRC", "Priority markets"],
+  ["PPP + Corridors", "Infrastructure intelligence"],
+  ["TMI.AFRICA", "Live intelligence platform"]
+];
+
 function App() {
   return (
     <main style={{
@@ -20,7 +27,6 @@ function App() {
       background:"linear-gradient(135deg,#030712,#07152f,#0b3a67)",
       color:"#fff"
     }}>
-
       <header style={{
         display:"flex",
         justifyContent:"space-between",
@@ -31,31 +37,22 @@ function App() {
         gap:"20px"
       }}>
         <div>
-          <div style={{fontSize:"42px",fontWeight:"800",color:"#ff6b4a"}}>
-            TerraNova
-          </div>
+          <div style={{fontSize:"42px",fontWeight:"800",color:"#ff6b4a"}}>TerraNova</div>
           <div style={{letterSpacing:"4px",fontSize:"12px",color:"#d1d5db"}}>
             MINING INTELLIGENCE & ASSET MANAGEMENT
           </div>
         </div>
 
-        <nav style={{
-          display:"flex",
-          gap:"28px",
-          fontSize:"15px",
-          color:"#e5e7eb",
-          flexWrap:"wrap"
-        }}>
-          <span>Dashboard</span>
-          <span>Zambia</span>
-          <span>DRC</span>
-          <span>PPP</span>
-          <span>Corridors</span>
-          <span>Reports</span>
+        <nav style={{display:"flex",gap:"24px",fontSize:"15px",color:"#e5e7eb",flexWrap:"wrap"}}>
+          <a href="#dashboard" style={link}>Dashboard</a>
+          <a href="#modules" style={link}>Zambia</a>
+          <a href="#modules" style={link}>DRC</a>
+          <a href="#reports" style={link}>Reports</a>
+          <a href="#contact" style={link}>Contact</a>
         </nav>
       </header>
 
-      <section style={{padding:"24px 60px 50px",maxWidth:"1400px",margin:"0 auto"}}>
+      <section id="dashboard" style={{padding:"24px 60px 40px",maxWidth:"1400px",margin:"0 auto"}}>
         <div style={{color:"#38bdf8",fontWeight:"700",letterSpacing:"2px",marginBottom:"14px"}}>
           TMI.AFRICA
         </div>
@@ -75,55 +72,96 @@ function App() {
         </p>
 
         <div style={{display:"flex",gap:"18px",marginTop:"26px",flexWrap:"wrap"}}>
-          <button style={{
-            background:"#f97316",
-            color:"#fff",
-            border:"none",
-            padding:"16px 30px",
-            borderRadius:"12px",
-            fontWeight:"700",
-            cursor:"pointer",
-            boxShadow:"0 10px 24px rgba(249,115,22,.35)"
-          }}>
-            Request Intelligence Brief
-          </button>
-
-          <button style={{
-            background:"transparent",
-            color:"#fff",
-            border:"1px solid rgba(255,255,255,.45)",
-            padding:"16px 30px",
-            borderRadius:"12px",
-            fontWeight:"700",
-            cursor:"pointer"
-          }}>
-            Access Platform
-          </button>
+          <a href="#contact" style={orangeButton}>Request Intelligence Brief</a>
+          <a href="#modules" style={outlineButton}>Access Platform</a>
         </div>
 
         <section style={{
           display:"grid",
+          gridTemplateColumns:"repeat(auto-fit,minmax(220px,1fr))",
+          gap:"16px",
+          marginTop:"38px"
+        }}>
+          {metrics.map(([big,small]) => (
+            <div key={big} style={metricCard}>
+              <strong style={{fontSize:"24px"}}>{big}</strong>
+              <span style={{color:"#cbd5e1"}}>{small}</span>
+            </div>
+          ))}
+        </section>
+
+        <section id="modules" style={{
+          display:"grid",
           gridTemplateColumns:"repeat(auto-fit,minmax(250px,1fr))",
           gap:"20px",
-          marginTop:"45px",
-          paddingBottom:"60px"
+          marginTop:"40px"
         }}>
           {modules.map(([title,text]) => (
-            <article key={title} style={{
-              background:"rgba(255,255,255,.06)",
-              border:"1px solid rgba(255,255,255,.1)",
-              borderRadius:"18px",
-              padding:"24px",
-              minHeight:"145px"
-            }}>
+            <article key={title} style={card}>
               <h3 style={{fontSize:"22px",margin:"0 0 14px"}}>{title}</h3>
               <p style={{color:"#cbd5e1",lineHeight:"1.55",margin:0}}>{text}</p>
             </article>
           ))}
         </section>
+
+        <section id="reports" style={{marginTop:"55px",padding:"34px",borderRadius:"22px",background:"rgba(255,255,255,.06)",border:"1px solid rgba(255,255,255,.1)"}}>
+          <h2 style={{marginTop:0}}>Featured Intelligence Products</h2>
+          <p style={{color:"#cbd5e1",lineHeight:"1.7"}}>
+            Distressed Licence Tracker • Zambia–DRC Mining Opportunity Radar • PPP Corridor Monitor • Investor & Supplier Due Diligence Briefs
+          </p>
+        </section>
+
+        <section id="contact" style={{marginTop:"35px",paddingBottom:"70px"}}>
+          <h2>Request Access</h2>
+          <p style={{color:"#cbd5e1"}}>For pilot access, intelligence briefs or partnership discussions, contact TerraNova Mining Intelligence.</p>
+          <a href="mailto:fred.mulenga@zerb.co.zm" style={orangeButton}>Email TerraNova</a>
+        </section>
       </section>
     </main>
   );
 }
+
+const link = { color:"#e5e7eb", textDecoration:"none" };
+
+const orangeButton = {
+  display:"inline-block",
+  background:"#f97316",
+  color:"#fff",
+  border:"none",
+  padding:"16px 30px",
+  borderRadius:"12px",
+  fontWeight:"700",
+  textDecoration:"none",
+  boxShadow:"0 10px 24px rgba(249,115,22,.35)"
+};
+
+const outlineButton = {
+  display:"inline-block",
+  background:"transparent",
+  color:"#fff",
+  border:"1px solid rgba(255,255,255,.45)",
+  padding:"16px 30px",
+  borderRadius:"12px",
+  fontWeight:"700",
+  textDecoration:"none"
+};
+
+const card = {
+  background:"rgba(255,255,255,.06)",
+  border:"1px solid rgba(255,255,255,.1)",
+  borderRadius:"18px",
+  padding:"24px",
+  minHeight:"145px"
+};
+
+const metricCard = {
+  background:"rgba(15,23,42,.7)",
+  border:"1px solid rgba(255,255,255,.1)",
+  borderRadius:"16px",
+  padding:"20px",
+  display:"flex",
+  flexDirection:"column",
+  gap:"8px"
+};
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
