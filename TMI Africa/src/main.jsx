@@ -38,77 +38,85 @@ text:"Generate investor-ready intelligence briefs and opportunity reports."
 
 function Card({title,text}) {
 return(
+
 <div style={{
-background:"rgba(255,255,255,0.05)",
-padding:"25px",
+background:"rgba(255,255,255,0.06)",
+padding:"28px",
 borderRadius:"18px",
-border:"1px solid rgba(255,255,255,0.1)",
-minHeight:"160px",
-backdropFilter:"blur(10px)"
+border:"1px solid rgba(255,255,255,.08)",
+minHeight:"180px"
 }}>
+
 <h3 style={{
-fontSize:"28px",
-marginBottom:"15px"
+fontSize:"22px",
+marginBottom:"18px"
 }}>
 {title}
 </h3>
 
 <p style={{
-color:"#cfd6e4",
-lineHeight:"1.6"
+lineHeight:"1.7",
+color:"#d0d8e8"
 }}>
 {text}
 </p>
+
 </div>
+
 )
 }
+
 
 function App(){
 
 return(
 
 <div style={{
+
 fontFamily:"Arial,sans-serif",
-background:"linear-gradient(135deg,#050b17,#081c3d,#0b2e63)",
-color:"white",
-minHeight:"100vh"
+background:"linear-gradient(135deg,#020617,#06142e,#0a2959)",
+minHeight:"100vh",
+color:"white"
+
 }}>
 
-{/* NAVBAR */}
+{/* NAV */}
 
 <div style={{
+
 display:"flex",
 justifyContent:"space-between",
 alignItems:"center",
-padding:"20px 45px",
-borderBottom:"1px solid rgba(255,255,255,0.08)"
+padding:"30px 70px"
+
 }}>
 
 <div>
 
 <div style={{
-color:"#ff6b6b",
-fontSize:"36px",
-fontWeight:"bold"
+fontSize:"50px",
+fontWeight:"bold",
+color:"#ff6a6a"
 }}>
 TerraNova
 </div>
 
 <div style={{
-letterSpacing:"4px",
-fontSize:"13px",
-color:"#d5d9e3"
+letterSpacing:"5px",
+fontSize:"14px",
+marginTop:"4px",
+color:"#d8dce7"
 }}>
 MINING INTELLIGENCE & ASSET MANAGEMENT
 </div>
 
 </div>
 
+
 <div style={{
 display:"flex",
-gap:"30px",
-fontSize:"15px",
-color:"#d7dbe8"
+gap:"35px",
+fontSize:"17px"
 }}>
 <div>Dashboard</div>
 <div>Zambia</div>
@@ -123,42 +131,47 @@ color:"#d7dbe8"
 {/* HERO */}
 
 <div style={{
-padding:"30px 45px",
-maxWidth:"1300px"
+
+padding:"20px 70px",
+maxWidth:"1400px"
+
 }}>
 
 <div style={{
-color:"#5ab3ff",
+color:"#5db5ff",
 fontWeight:"bold",
-letterSpacing:"2px"
+marginBottom:"15px"
 }}>
 TMI.AFRICA
 </div>
 
-
 <h1 style={{
-fontSize:"46px",
-maxWidth:"700px",
-marginTop:"15px",
-marginBottom:"20px"
+
+fontSize:"68px",
+maxWidth:"900px",
+margin:"0"
+
 }}>
 TerraNova Mining Intelligence
 </h1>
 
-<div style={{
-fontSize:"22px",
-color:"#dce3ee",
-marginBottom:"20px",
-maxWidth:"900px"
+
+<h2 style={{
+fontWeight:"normal",
+fontSize:"34px",
+marginTop:"25px",
+maxWidth:"1000px",
+color:"#d8deea"
 }}>
 Mining, PPP, infrastructure and strategic investment intelligence for Africa.
-</div>
+</h2>
 
 
 <p style={{
-maxWidth:"1100px",
-fontSize:"16px",
-lineHeight:"1.8",
+marginTop:"25px",
+fontSize:"20px",
+lineHeight:"1.9",
+maxWidth:"1200px",
 color:"#cfd6e4"
 }}>
 TerraNova Mining Intelligence helps investors, banks,
@@ -169,31 +182,32 @@ DRC and regional corridors.
 </p>
 
 
+
 <div style={{
 display:"flex",
 gap:"20px",
-marginTop:"22px"
+marginTop:"35px"
 }}>
 
 <button style={{
-background:"#ffb347",
+background:"#ffc34d",
+padding:"18px 40px",
 border:"none",
-padding:"18px 38px",
-borderRadius:"14px",
-fontWeight:"bold",
-fontSize:"16px"
+borderRadius:"12px",
+fontSize:"16px",
+fontWeight:"bold"
 }}>
 Request Intelligence Brief
 </button>
 
+
 <button style={{
 background:"transparent",
-border:"1px solid #a8b0c0",
-padding:"18px 38px",
-borderRadius:"14px",
+border:"1px solid #8da3c8",
+padding:"18px 40px",
+borderRadius:"12px",
 color:"white",
-fontWeight:"bold",
-fontSize:"16px"
+fontWeight:"bold"
 }}>
 Access Platform
 </button>
@@ -202,17 +216,22 @@ Access Platform
 
 
 <div style={{
+
 display:"grid",
-gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",
-gap:"20px",
-marginTop:"50px"
+gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",
+gap:"25px",
+marginTop:"70px",
+paddingBottom:"70px"
+
 }}>
 
 {modules.map((m)=>(
+
 <Card
 title={m.title}
 text={m.text}
 />
+
 ))}
 
 </div>
@@ -222,6 +241,7 @@ text={m.text}
 </div>
 
 )
+
 }
 
 ReactDOM.createRoot(
