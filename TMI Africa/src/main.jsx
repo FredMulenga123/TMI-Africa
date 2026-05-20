@@ -40,55 +40,61 @@ function App(){
 
 return(
 
-<main style={{
-
+<main
+style={{
 background:
 "radial-gradient(circle at bottom,#0d6efd40,#060b18 60%)",
-
 color:"white",
-
 fontFamily:"Arial,sans-serif",
-
 padding:"40px",
-
 minHeight:"100vh"
-
-}}>
+}}
+>
 
 {/* NAVBAR */}
 
-<div style={{
+<div
+style={{
 display:"flex",
 justifyContent:"space-between",
 alignItems:"center",
-marginBottom:"60px"
-}}>
+marginBottom:"60px",
+flexWrap:"wrap"
+}}
+>
 
 <div>
 
-<div style={{
+<div
+style={{
 fontSize:"58px",
 fontWeight:"bold",
 color:"#ff6b6b"
-}}>
+}}
+>
 TerraNova
 </div>
 
-<div style={{
+<div
+style={{
 letterSpacing:"6px",
 fontSize:"15px",
 color:"#d0d0d0"
-}}>
+}}
+>
 MINING INTELLIGENCE & ASSET MANAGEMENT
 </div>
 
 </div>
 
-<div style={{
+<div
+style={{
 display:"flex",
-gap:"30px",
-fontSize:"20px"
-}}>
+gap:"25px",
+fontSize:"18px",
+marginTop:"15px"
+}}
+>
 <span>Dashboard</span>
 <span>Zambia</span>
 <span>DRC</span>
@@ -117,7 +123,7 @@ TMI.AFRICA
 
 <h1
 style={{
-fontSize:"78px",
+fontSize:"72px",
 maxWidth:"900px",
 marginBottom:"20px"
 }}
@@ -127,7 +133,7 @@ TerraNova Mining Intelligence
 
 <div
 style={{
-fontSize:"30px",
+fontSize:"28px",
 maxWidth:"1000px",
 marginBottom:"30px",
 color:"#e6e6e6"
@@ -141,7 +147,7 @@ Mining, PPP, infrastructure and strategic investment intelligence for Africa.
 style={{
 maxWidth:"1200px",
 lineHeight:"1.8",
-fontSize:"22px",
+fontSize:"20px",
 color:"#cdd7e5"
 }}
 >
@@ -156,11 +162,14 @@ DRC and regional corridors.
 </p>
 
 
-<div style={{
+<div
+style={{
 marginTop:"40px",
 display:"flex",
-gap:"20px"
-}}>
+gap:"20px",
+flexWrap:"wrap"
+}}
+>
 
 <button
 style={{
@@ -174,6 +183,7 @@ fontSize:"18px"
 >
 Request Intelligence Brief
 </button>
+
 
 <button
 style={{
@@ -194,6 +204,7 @@ Access Platform
 </div>
 
 
+
 {/* MODULES */}
 
 <div
@@ -201,25 +212,24 @@ style={{
 display:"grid",
 gridTemplateColumns:
 "repeat(auto-fit,minmax(300px,1fr))",
+
 gap:"25px",
+
 marginTop:"60px"
 }}
 >
 
 {modules.map((m)=>(
+
 <div
 
 key={m.title}
 
 style={{
 padding:"35px",
-background:
-"rgba(255,255,255,.05)",
-
+background:"rgba(255,255,255,.05)",
 border:"1px solid rgba(255,255,255,.08)",
-
 borderRadius:"22px",
-
 backdropFilter:"blur(12px)"
 }}
 >
@@ -236,72 +246,54 @@ color:"#d0d8e7"
 </p>
 
 </div>
+
 ))}
 
 </div>
 
 
+
 {/* FEATURED */}
 
 <section
-
 style={{
 marginTop:"60px",
 padding:"35px",
-
 borderRadius:"20px",
-
 background:
 "rgba(60,90,180,.18)"
 }}
 >
 
 <h2>
-
 Featured Intelligence Products
-
 </h2>
 
 <p>
-
 Distressed Licence Tracker • Zambia–DRC Mining Opportunity Radar • PPP Corridor Monitor • Investor & Supplier Due Diligence Briefs
-
 </p>
 
 </section>
 
 
+
 {/* REQUEST ACCESS */}
 
 <section
-
 style={{
 marginTop:"60px",
-
 padding:"40px",
-
 borderRadius:"24px",
-
 background:
 "linear-gradient(135deg, rgba(34,197,255,.12), rgba(20,30,60,.7))",
-
-display:"flex",
-
-justifyContent:"space-between",
-
-alignItems:"center",
-
-flexWrap:"wrap",
-
-gap:"30px"
+border:"1px solid rgba(255,255,255,.08)"
 }}
 >
 
-<div>
-
 <h2
 style={{
-fontSize:"42px"
+fontSize:"42px",
+marginBottom:"20px"
 }}
 >
 Request Access
@@ -309,64 +301,73 @@ Request Access
 
 <p
 style={{
-maxWidth:"800px",
-lineHeight:"1.8"
+maxWidth:"900px",
+lineHeight:"1.8",
+fontSize:"18px",
+color:"#d0d8e7",
+marginBottom:"30px"
 }}
 >
 
-Request pilot access,
-intelligence briefings,
+Request pilot access, intelligence briefings,
 investor due diligence reports,
-corridor intelligence or partnership discussions.
+corridor intelligence or partnership discussions
+with TerraNova Mining Intelligence.
 
 </p>
 
+
 <div
 style={{
-marginTop:"20px",
-color:"#8fc9ff"
+marginBottom:"30px",
+lineHeight:"2"
+}}
+>
+
+<div
+style={{
+color:"#53b8ff",
+fontWeight:"bold"
 }}
 >
 fred.mulenga@zerb.co.zm
+</div>
+
+<div>
+📞 (+260) 760 612 073
+</div>
+
+<div>
+📱 0961 863 010
 </div>
 
 </div>
 
 
 <button
-
 style={{
 background:"#ffb347",
-
+color:"#111",
 padding:"18px 35px",
-
 border:"none",
-
 borderRadius:"14px",
-
-fontWeight:"bold"
+fontWeight:"bold",
+cursor:"pointer"
 }}
 >
-
-Contact TerraNova
-
+Request Intelligence Brief
 </button>
 
 </section>
 
 
-<footer
 
+<footer
 style={{
 marginTop:"80px",
-
 padding:"30px",
-
-borderTop:
-"1px solid rgba(255,255,255,.08)",
-
+borderTop:"1px solid rgba(255,255,255,.08)",
 textAlign:"center",
-
 color:"#8fa2b5"
 }}
 >
