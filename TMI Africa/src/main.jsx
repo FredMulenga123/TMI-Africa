@@ -62,7 +62,8 @@ function App() {
       const matchesSearch =
         item.company.toLowerCase().includes(search.toLowerCase()) ||
         item.commodity.toLowerCase().includes(search.toLowerCase()) ||
-        item.province.toLowerCase().includes(search.toLowerCase());
+        item.province.toLowerCase().includes(search.toLowerCase()) ||
+        item.status.toLowerCase().includes(search.toLowerCase());
 
       return matchesCountry && matchesSearch;
     });
@@ -80,6 +81,7 @@ function App() {
           <a href="#dashboard" style={link}>Dashboard</a>
           <a href="#licences" style={link}>Licences</a>
           <a href="#sovereign" style={link}>Sovereign Risk</a>
+          <a href="#strategic" style={link}>Strategic Minerals</a>
           <a href="#contact" style={link}>Contact</a>
         </nav>
       </header>
@@ -88,13 +90,15 @@ function App() {
         <p style={eyebrow}>TMI.AFRICA</p>
 
         <h2 style={headline}>
-          Distressed & Cancelled Mining Licence Intelligence
+          Distressed Mining Assets & Sovereign Risk Intelligence
         </h2>
 
         <p style={subtext}>
-          Track cancelled, suspended, distressed and high-risk mining rights across Zambia,
-          DRC and strategic African mineral corridors. TMI helps investors, banks,
-          governments and mining operators identify opportunities and monitor sovereign risk.
+          TerraNova Mining Intelligence tracks cancelled, suspended, distressed
+          and high-risk mining rights across Zambia, DRC and strategic African
+          mineral corridors. TMI helps investors, banks, governments and mining
+          operators identify opportunities, monitor sovereign risk and map
+          strategic mining assets.
         </p>
 
         <div style={metrics}>
@@ -106,17 +110,29 @@ function App() {
       </section>
 
       <section id="licences" style={panel}>
+        <p style={eyebrow}>DISTRESSED LICENCE INTELLIGENCE</p>
+
         <h2>Licence Intelligence Dashboard</h2>
+
+        <p style={subtext}>
+          Search, filter and monitor cancelled, suspended and distressed mining
+          licences. This module becomes the foundation for investor opportunity
+          mapping and acquisition-target intelligence.
+        </p>
 
         <div style={filters}>
           <input
-            placeholder="Search company, province or commodity..."
+            placeholder="Search company, province, status or commodity..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             style={input}
           />
 
-          <select value={country} onChange={(e) => setCountry(e.target.value)} style={input}>
+          <select
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            style={input}
+          >
             <option>All</option>
             <option>Zambia</option>
             <option>DRC</option>
@@ -134,7 +150,7 @@ function App() {
                 <Th>Commodity</Th>
                 <Th>Status</Th>
                 <Th>Risk</Th>
-                <Th>Opportunity Score</Th>
+                <Th>Opportunity</Th>
               </tr>
             </thead>
 
@@ -159,27 +175,106 @@ function App() {
       </section>
 
       <section id="sovereign" style={panel}>
-        <h2>Africa Sovereign Risk Intelligence</h2>
+        <p style={eyebrow}>AFRICA SOVEREIGN RISK INTELLIGENCE</p>
+
+        <h2>Sovereign Risk & Strategic Minerals Monitor</h2>
+
         <p style={subtext}>
-          Monitor resource nationalism, mining code changes, state participation,
-          sovereign mining funds, licence revocations and strategic mineral policy shifts.
+          Track resource nationalism, mining policy shifts, state mining funds,
+          licence revocations, mineral export controls, local content rules and
+          strategic mineral competition across Africa.
         </p>
 
         <div style={cards}>
-          <Card title="Resource Nationalism Monitor" text="Track state intervention, ownership shifts and mining policy changes." />
-          <Card title="Strategic Minerals Watch" text="Monitor copper, cobalt, lithium, uranium, rare earths and critical minerals." />
-          <Card title="DRC Suspension Monitor" text="Track South Kivu, Mwenga, Shabunda and other high-risk mineral zones." />
-          <Card title="Investor Due Diligence" text="Screen investors, operators, suppliers and beneficial ownership risk." />
+          <Card
+            title="Resource Nationalism Monitor"
+            text="Tracks government intervention, state participation, forced joint ventures, export controls and resource sovereignty moves."
+          />
+
+          <Card
+            title="Strategic Minerals Watch"
+            text="Monitors copper, cobalt, lithium, uranium, graphite, manganese, rare earths and other critical minerals."
+          />
+
+          <Card
+            title="State Mining Funds"
+            text="Tracks sovereign mining funds, national mining companies, state investment vehicles and strategic mineral reserves."
+          />
+
+          <Card
+            title="DRC Suspension Monitor"
+            text="Tracks South Kivu, Mwenga, Shabunda, cobalt, coltan, gold and other high-risk mining zones."
+          />
+
+          <Card
+            title="Burkina Faso Sovereign Fund Watch"
+            text="Monitors sovereign mining wealth capture, strategic state funds and resource nationalism trends in West Africa."
+          />
+
+          <Card
+            title="Mining Policy Alerts"
+            text="Tracks mining code changes, royalty shifts, licence reviews, local ownership rules and investor risk signals."
+          />
         </div>
+      </section>
+
+      <section id="strategic" style={panel}>
+        <p style={eyebrow}>STRATEGIC MINERALS & CORRIDORS</p>
+
+        <h2>Critical Minerals, Corridors & Opportunity Mapping</h2>
+
+        <p style={subtext}>
+          TMI connects mining assets to strategic mineral demand, regional corridors,
+          PPP infrastructure and investor risk signals across Africa.
+        </p>
+
+        <div style={cards}>
+          <Card
+            title="Copperbelt Intelligence"
+            text="Monitor Copperbelt and Katanga-linked copper and cobalt assets, corridor routes and investor exposure."
+          />
+
+          <Card
+            title="Lobito Corridor Monitor"
+            text="Track mining logistics, rail, port, border and investment developments linked to the Lobito Corridor."
+          />
+
+          <Card
+            title="TAZARA & Regional Rail"
+            text="Monitor rail infrastructure, PPPs, mineral transport routes and regional logistics risk."
+          />
+
+          <Card
+            title="Investor Opportunity Radar"
+            text="Rank distressed assets and strategic mining opportunities using risk and opportunity scoring."
+          />
+        </div>
+      </section>
+
+      <section id="reports" style={panel}>
+        <p style={eyebrow}>PREMIUM INTELLIGENCE PRODUCTS</p>
+
+        <h2>Featured Intelligence Products</h2>
+
+        <p style={subtext}>
+          Distressed Licence Tracker • Zambia–DRC Mining Opportunity Radar •
+          PPP Corridor Monitor • Africa Mining Sovereignty Watch • Investor &
+          Supplier Due Diligence Briefs
+        </p>
       </section>
 
       <section id="contact" style={panel}>
         <h2>Request Access</h2>
+
         <p style={subtext}>
-          Request pilot access, licence intelligence reports, investor briefs or partnership discussions.
+          Request pilot access, licence intelligence reports, investor briefs,
+          corridor intelligence or partnership discussions.
         </p>
 
-        <p style={{ color: "#53b8ff", fontWeight: "bold" }}>fred.mulenga@zerb.co.zm</p>
+        <p style={{ color: "#53b8ff", fontWeight: "bold" }}>
+          fred.mulenga@zerb.co.zm
+        </p>
+
         <p>📞 (+260) 760 612 073</p>
         <p>📱 0961 863 010</p>
 
@@ -226,7 +321,8 @@ const page = {
   color: "white",
   fontFamily: "Arial, sans-serif",
   padding: "40px",
-  minHeight: "100vh"
+  minHeight: "100vh",
+  overflowX: "hidden"
 };
 
 const header = {
@@ -267,12 +363,13 @@ const hero = {
 
 const eyebrow = {
   color: "#53b8ff",
-  fontWeight: "bold"
+  fontWeight: "bold",
+  letterSpacing: "1.5px"
 };
 
 const headline = {
   fontSize: "54px",
-  maxWidth: "1000px",
+  maxWidth: "1050px",
   marginBottom: "20px"
 };
 
