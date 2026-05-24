@@ -341,7 +341,14 @@ function App() {
         </div>
       </section>
 
-      <section id="contact" style={panel}>
+      <section
+        id="contact"
+        style={{
+          ...panel,
+          marginTop: "30px",
+          padding: "28px"
+        }}
+      >
         <h2>Request Access</h2>
 
         <p style={subtext}>
