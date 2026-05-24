@@ -308,6 +308,40 @@ function App() {
         </p>
       </section>
 
+      <section style={panel}>
+        <p style={eyebrow}>TERRA NOVA INTELLIGENCE NETWORK</p>
+
+        <h2>Africa Mining Intelligence Infrastructure</h2>
+
+        <p style={subtext}>
+          TerraNova Mining Intelligence is building a sovereign mining intelligence,
+          distressed asset monitoring and strategic minerals intelligence platform
+          focused on Zambia, DRC and emerging African resource corridors.
+        </p>
+
+        <div style={cards}>
+          <Card
+            title="Cancelled Licence Intelligence"
+            text="Monitor distressed and revoked mining rights across Zambia and Africa."
+          />
+
+          <Card
+            title="Strategic Minerals Intelligence"
+            text="Track copper, cobalt, lithium, uranium and critical mineral assets."
+          />
+
+          <Card
+            title="Sovereign Risk Analytics"
+            text="Monitor mining policy shifts, sovereign funds and state mining intervention."
+          />
+
+          <Card
+            title="Investor Due Diligence"
+            text="Screen mining investors, operators, suppliers and beneficial ownership risk."
+          />
+        </div>
+      </section>
+
       <section id="contact" style={panel}>
         <h2>Request Access</h2>
 
@@ -362,7 +396,8 @@ function Td({ children }) {
 }
 
 const page = {
-  background: "radial-gradient(circle at bottom,#0d6efd40,#060b18 60%)",
+  background:
+    "linear-gradient(180deg, #050816 0%, #07142b 45%, #0b1f3f 100%)",
   color: "white",
   fontFamily: "Arial, sans-serif",
   padding: "40px",
@@ -444,10 +479,11 @@ const metricCard = {
 
 const panel = {
   marginTop: "45px",
-  padding: "34px",
-  borderRadius: "22px",
-  background: "rgba(255,255,255,.055)",
-  border: "1px solid rgba(255,255,255,.08)"
+  padding: "40px",
+  borderRadius: "24px",
+  background: "rgba(255,255,255,.05)",
+  border: "1px solid rgba(255,255,255,.08)",
+  backdropFilter: "blur(10px)"
 };
 
 const filters = {
@@ -517,11 +553,12 @@ const button = {
 };
 
 const footer = {
-  marginTop: "40px",
-  padding: "20px 0",
+  marginTop: "60px",
+  padding: "40px 0",
   textAlign: "center",
   color: "#8fa2b5",
-  fontSize: "14px"
+  fontSize: "14px",
+  borderTop: "1px solid rgba(255,255,255,.08)"
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
