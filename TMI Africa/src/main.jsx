@@ -2,18 +2,60 @@ import React, { useMemo, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { licences } from "./data";
 
+const liveAlerts = [
+  {
+    country: "DRC",
+    risk: "HIGH",
+    title: "South Kivu Mining Suspensions",
+    desc: "Authorities suspend mining activities in Mwenga and Shabunda amid illicit mineral, gold and coltan concerns.",
+    color: "#dc2626"
+  },
+  {
+    country: "Burkina Faso",
+    risk: "HIGH",
+    title: "State Mining Sovereign Fund",
+    desc: "Government-backed sovereign mining fund signals stronger state participation and resource nationalism.",
+    color: "#ea580c"
+  },
+  {
+    country: "Zambia",
+    risk: "MODERATE",
+    title: "Strategic Minerals Expansion",
+    desc: "Copper, cobalt, lithium and corridor-linked mining intelligence activity accelerating across Zambia.",
+    color: "#eab308"
+  },
+  {
+    country: "Angola",
+    risk: "MODERATE",
+    title: "Lobito Corridor Growth",
+    desc: "Rail, logistics and copper export corridor investment expanding through Angola, DRC and Zambia.",
+    color: "#38bdf8"
+  },
+  {
+    country: "DRC",
+    risk: "HIGH",
+    title: "Katanga Copper-Cobalt Exposure",
+    desc: "Katanga remains a strategic copper-cobalt jurisdiction with elevated sovereign and ownership-risk exposure.",
+    color: "#dc2626"
+  },
+  {
+    country: "Africa",
+    risk: "WATCH",
+    title: "Resource Nationalism Watch",
+    desc: "Mining policy shifts, state equity demands, licence reviews and export controls are increasing across Africa.",
+    color: "#a855f7"
+  }
+];
+
 function App() {
   const [country, setCountry] = useState("All");
   const [search, setSearch] = useState("");
 
   const filtered = useMemo(() => {
     return licences.filter((item) => {
-      const matchesCountry =
-        country === "All" || item.country === country;
+      const matchesCountry = country === "All" || item.country === country;
 
-      const text =
-        `${item.company} ${item.commodity} ${item.province} ${item.category}`
-          .toLowerCase();
+      const text = `${item.company} ${item.commodity} ${item.province} ${item.category} ${item.status} ${item.sovereign}`.toLowerCase();
 
       return matchesCountry && text.includes(search.toLowerCase());
     });
@@ -22,21 +64,17 @@ function App() {
   const highRisk = filtered.filter((x) => x.risk === "High").length;
 
   const strategic = filtered.filter(
-    (x) =>
-      x.category.includes("Strategic") ||
-      x.category.includes("Critical")
+    (x) => x.category.includes("Strategic") || x.category.includes("Critical")
   ).length;
 
   const avgOpportunity = Math.round(
-    filtered.reduce((a, b) => a + b.opportunity, 0) /
-      filtered.length
+    filtered.reduce((a, b) => a + b.opportunity, 0) / (filtered.length || 1)
   );
 
   const commodityStats = {};
 
   filtered.forEach((item) => {
-    commodityStats[item.minerals] =
-      (commodityStats[item.minerals] || 0) + 1;
+    commodityStats[item.minerals] = (commodityStats[item.minerals] || 0) + 1;
   });
 
   return (
@@ -44,21 +82,20 @@ function App() {
       <header style={header}>
         <div>
           <h1 style={brand}>TerraNova</h1>
-          <p style={tagline}>
-            MINING INTELLIGENCE & ASSET MANAGEMENT
-          </p>
+          <p style={tagline}>MINING INTELLIGENCE & ASSET MANAGEMENT</p>
         </div>
 
         <nav style={nav}>
           <a href="#dashboard" style={link}>Dashboard</a>
           <a href="#heatmap" style={link}>Heatmap</a>
           <a href="#analytics" style={link}>Analytics</a>
-          <a href="#alerts" style={link}>Alerts</a>
+          <a href="#licences" style={link}>Licences</a>
+          <a href="#alerts" style={link}>Live Alerts</a>
           <a href="#contact" style={link}>Contact</a>
         </nav>
       </header>
 
-      <section style={hero}>
+      <section id="dashboard" style={hero}>
         <p style={eyebrow}>TMI.AFRICA</p>
 
         <h1 style={headline}>
@@ -66,17 +103,16 @@ function App() {
         </h1>
 
         <p style={subtext}>
-          TerraNova Mining Intelligence monitors distressed
-          mining assets, strategic minerals, sovereign risk,
-          corridor infrastructure and investor intelligence
-          across Africa.
+          TerraNova Mining Intelligence monitors distressed mining assets,
+          strategic minerals, sovereign risk, corridor infrastructure and
+          investor intelligence across Africa.
         </p>
 
         <div style={metrics}>
-          <Metric title="15" text="Mining Intelligence Records" />
-          <Metric title="6" text="High-Risk Mining Assets" />
-          <Metric title="5" text="Strategic Minerals Assets" />
-          <Metric title="90/100" text="Average Opportunity Score" />
+          <Metric title={licences.length} text="Mining Intelligence Records" />
+          <Metric title={highRisk} text="High-Risk Mining Assets" />
+          <Metric title={strategic} text="Strategic Minerals Assets" />
+          <Metric title={`${avgOpportunity}/100`} text="Average Opportunity Score" />
         </div>
       </section>
 
@@ -86,47 +122,12 @@ function App() {
         <h2>Sovereign Mining Risk Monitor</h2>
 
         <div style={heatmapGrid}>
-          <HeatCard
-            country="DRC"
-            risk="HIGH"
-            color="#dc2626"
-            note="Conflict minerals, suspensions and resource nationalism"
-          />
-
-          <HeatCard
-            country="Burkina Faso"
-            risk="HIGH"
-            color="#ea580c"
-            note="State mining fund and sovereign intervention"
-          />
-
-          <HeatCard
-            country="Zambia"
-            risk="MODERATE"
-            color="#eab308"
-            note="Strategic minerals and corridor expansion"
-          />
-
-          <HeatCard
-            country="Angola"
-            risk="MODERATE"
-            color="#f59e0b"
-            note="Lobito corridor investment activity"
-          />
-
-          <HeatCard
-            country="Botswana"
-            risk="LOW"
-            color="#16a34a"
-            note="Stable mining governance environment"
-          />
-
-          <HeatCard
-            country="Tanzania"
-            risk="MODERATE"
-            color="#f59e0b"
-            note="Resource nationalism monitoring"
-          />
+          <HeatCard country="DRC" risk="HIGH" color="#dc2626" note="Conflict minerals, suspensions and resource nationalism" />
+          <HeatCard country="Burkina Faso" risk="HIGH" color="#ea580c" note="State mining fund and sovereign intervention" />
+          <HeatCard country="Zambia" risk="MODERATE" color="#eab308" note="Strategic minerals and corridor expansion" />
+          <HeatCard country="Angola" risk="MODERATE" color="#f59e0b" note="Lobito corridor investment activity" />
+          <HeatCard country="Botswana" risk="LOW" color="#16a34a" note="Stable mining governance environment" />
+          <HeatCard country="Tanzania" risk="MODERATE" color="#f59e0b" note="Resource nationalism monitoring" />
         </div>
       </section>
 
@@ -154,12 +155,7 @@ function App() {
                 </div>
 
                 <div style={barBg}>
-                  <div
-                    style={{
-                      ...barFill,
-                      width: `${value * 20}%`
-                    }}
-                  />
+                  <div style={{ ...barFill, width: `${value * 20}%` }} />
                 </div>
               </div>
             ))}
@@ -175,14 +171,14 @@ function App() {
         </div>
       </section>
 
-      <section style={panel}>
+      <section id="licences" style={panel}>
         <p style={eyebrow}>LIVE LICENCE INTELLIGENCE</p>
 
         <h2>Licence Intelligence Dashboard</h2>
 
         <div style={filters}>
           <input
-            placeholder="Search company, commodity or province..."
+            placeholder="Search company, commodity, province, status or risk..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             style={input}
@@ -213,6 +209,8 @@ function App() {
                 <Th>Status</Th>
                 <Th>Risk</Th>
                 <Th>Opportunity</Th>
+                <Th>Category</Th>
+                <Th>Sovereign</Th>
               </tr>
             </thead>
 
@@ -225,14 +223,10 @@ function App() {
                   <Td>{item.province}</Td>
                   <Td>{item.commodity}</Td>
                   <Td>{item.status}</Td>
-
-                  <Td>
-                    <span style={badge(item.risk)}>
-                      {item.risk}
-                    </span>
-                  </Td>
-
+                  <Td><span style={badge(item.risk)}>{item.risk}</span></Td>
                   <Td>{item.opportunity}/100</Td>
+                  <Td>{item.category}</Td>
+                  <Td>{item.sovereign}</Td>
                 </tr>
               ))}
             </tbody>
@@ -240,31 +234,48 @@ function App() {
         </div>
       </section>
 
-      <section id="alerts" style={panel}>
-        <p style={eyebrow}>LIVE AFRICA MINING ALERTS</p>
+      <section id="alerts" style={livePanel}>
+        <div style={liveHeader}>
+          <div>
+            <p style={eyebrow}>LIVE AFRICA INTELLIGENCE</p>
+            <h2 style={{ marginTop: 0 }}>Real-Time Sovereign Mining Alerts</h2>
+          </div>
 
-        <h2>Strategic Intelligence Alerts</h2>
+          <div style={liveBadge}>
+            <span style={pulseDot}></span>
+            LIVE
+          </div>
+        </div>
 
-        <div style={cards}>
-          <AlertCard
-            title="DRC Mining Suspensions"
-            text="South Kivu, Mwenga and Shabunda remain high-risk mining zones."
-          />
+        <p style={subtext}>
+          Monitor major sovereign mining developments, licence interventions,
+          strategic mineral policy shifts and infrastructure risk developments
+          across Africa.
+        </p>
 
-          <AlertCard
-            title="Burkina Faso Sovereign Mining Fund"
-            text="Government-backed sovereign mining investment restructuring underway."
-          />
+        <div style={alertGrid}>
+          {liveAlerts.map((alert, index) => (
+            <div key={index} style={alertCard}>
+              <div style={alertTop}>
+                <strong>{alert.country}</strong>
 
-          <AlertCard
-            title="Critical Minerals Competition"
-            text="Copper, cobalt and lithium demand accelerating across Africa."
-          />
+                <span
+                  style={{
+                    ...alertRisk,
+                    background: `${alert.color}30`,
+                    color: alert.color,
+                    border: `1px solid ${alert.color}70`
+                  }}
+                >
+                  {alert.risk}
+                </span>
+              </div>
 
-          <AlertCard
-            title="Lobito Corridor Expansion"
-            text="Rail, logistics and strategic corridor investment accelerating."
-          />
+              <h3>{alert.title}</h3>
+
+              <p style={alertText}>{alert.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -275,8 +286,8 @@ function App() {
 
         <p style={subtext}>
           Request intelligence briefings, sovereign mining reports,
-          investor due diligence, strategic minerals analysis and
-          corridor intelligence.
+          investor due diligence, strategic minerals analysis and corridor
+          intelligence.
         </p>
 
         <div style={contactGrid}>
@@ -323,17 +334,7 @@ function HeatCard({ country, risk, color, note }) {
     <div style={{ ...heatCard, borderTop: `5px solid ${color}` }}>
       <h3>{country}</h3>
 
-      <div
-        style={{
-          background: color,
-          color: "white",
-          display: "inline-block",
-          padding: "6px 12px",
-          borderRadius: "999px",
-          fontWeight: "bold",
-          marginBottom: "15px"
-        }}
-      >
+      <div style={{ background: color, color: "white", display: "inline-block", padding: "6px 12px", borderRadius: "999px", fontWeight: "bold", marginBottom: "15px" }}>
         {risk}
       </div>
 
@@ -351,23 +352,8 @@ function RiskRow({ label, value, color }) {
       </div>
 
       <div style={barBg}>
-        <div
-          style={{
-            ...barFill,
-            background: color,
-            width: value
-          }}
-        />
+        <div style={{ ...barFill, background: color, width: value }} />
       </div>
-    </div>
-  );
-}
-
-function AlertCard({ title, text }) {
-  return (
-    <div style={card}>
-      <h3>{title}</h3>
-      <p>{text}</p>
     </div>
   );
 }
@@ -390,8 +376,7 @@ function Td({ children }) {
 }
 
 const page = {
-  background:
-    "linear-gradient(180deg,#020617,#071226,#0b1e3d)",
+  background: "linear-gradient(180deg,#020617,#071226,#0b1e3d)",
   color: "white",
   fontFamily: "Arial, sans-serif",
   padding: "40px",
@@ -403,7 +388,8 @@ const header = {
   justifyContent: "space-between",
   alignItems: "center",
   marginBottom: "50px",
-  flexWrap: "wrap"
+  flexWrap: "wrap",
+  gap: "20px"
 };
 
 const brand = {
@@ -557,21 +543,18 @@ const th = {
   padding: "14px",
   textAlign: "left",
   color: "#38bdf8",
-  borderBottom: "1px solid rgba(255,255,255,.08)"
+  borderBottom: "1px solid rgba(255,255,255,.08)",
+  whiteSpace: "nowrap"
 };
 
 const td = {
   padding: "14px",
-  borderBottom: "1px solid rgba(255,255,255,.06)"
+  borderBottom: "1px solid rgba(255,255,255,.06)",
+  whiteSpace: "nowrap"
 };
 
 const badge = (risk) => ({
-  background:
-    risk === "High"
-      ? "#dc2626"
-      : risk === "Medium"
-      ? "#f59e0b"
-      : "#16a34a",
+  background: risk === "High" ? "#dc2626" : risk === "Medium" ? "#f59e0b" : "#16a34a",
   padding: "6px 12px",
   borderRadius: "999px",
   color: "white",
@@ -579,26 +562,78 @@ const badge = (risk) => ({
   fontSize: "12px"
 });
 
-const cards = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
-  gap: "20px",
-  marginTop: "25px"
+const livePanel = {
+  marginTop: "50px",
+  borderRadius: "28px",
+  border: "1px solid rgba(255,255,255,.10)",
+  background: "linear-gradient(135deg,rgba(15,23,42,.95),rgba(8,47,73,.55))",
+  padding: "40px",
+  boxShadow: "0 0 40px rgba(14,165,233,.10)"
 };
 
-const card = {
-  background: "rgba(255,255,255,.05)",
-  borderRadius: "18px",
-  padding: "22px",
-  border: "1px solid rgba(255,255,255,.08)"
+const liveHeader = {
+  display: "flex",
+  justifyContent: "space-between",
+  gap: "20px",
+  alignItems: "center",
+  flexWrap: "wrap"
+};
+
+const liveBadge = {
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
+  color: "#f87171",
+  fontWeight: "bold"
+};
+
+const pulseDot = {
+  width: "12px",
+  height: "12px",
+  borderRadius: "999px",
+  background: "#ef4444",
+  display: "inline-block",
+  boxShadow: "0 0 20px #ef4444"
+};
+
+const alertGrid = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))",
+  gap: "20px",
+  marginTop: "28px"
+};
+
+const alertCard = {
+  background: "rgba(255,255,255,.055)",
+  border: "1px solid rgba(255,255,255,.10)",
+  borderRadius: "20px",
+  padding: "24px"
+};
+
+const alertTop = {
+  display: "flex",
+  justifyContent: "space-between",
+  gap: "12px",
+  alignItems: "center"
+};
+
+const alertRisk = {
+  padding: "6px 12px",
+  borderRadius: "999px",
+  fontSize: "12px",
+  fontWeight: "bold"
+};
+
+const alertText = {
+  color: "#cbd5e1",
+  lineHeight: "1.7"
 };
 
 const contactSection = {
   marginTop: "50px",
   padding: "40px",
   borderRadius: "24px",
-  background:
-    "linear-gradient(135deg,rgba(15,23,42,.95),rgba(10,40,80,.95))"
+  background: "linear-gradient(135deg,rgba(15,23,42,.95),rgba(10,40,80,.95))"
 };
 
 const contactGrid = {
