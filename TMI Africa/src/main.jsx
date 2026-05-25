@@ -345,32 +345,109 @@ function App() {
         id="contact"
         style={{
           ...panel,
-          marginTop: "30px",
-          padding: "28px"
+          marginTop: "40px",
+          padding: "40px",
+          background:
+            "linear-gradient(135deg, rgba(15,23,42,.95), rgba(10,40,80,.95))",
+          border: "1px solid rgba(83,184,255,.15)"
         }}
       >
-        <h2>Request Access</h2>
-
-        <p style={subtext}>
-          Request pilot access, intelligence briefings,
-          investor due diligence reports, corridor intelligence
-          or partnership discussions with TerraNova Mining Intelligence.
-        </p>
-
-        <p style={{ color: "#53b8ff", fontWeight: "bold" }}>
-          fred.mulenga@zerb.co.zm
-        </p>
-
-        <p>📞 (+260) 760 612 073</p>
-
-        <p>📱 0961 863 010</p>
-
-        <a
-          href="mailto:fred.mulenga@zerb.co.zm"
-          style={button}
+        <p
+          style={{
+            color: "#53b8ff",
+            fontWeight: "bold",
+            letterSpacing: "2px",
+            marginBottom: "10px"
+          }}
         >
-          Request Intelligence Brief
-        </a>
+          TMI ACCESS & PARTNERSHIPS
+        </p>
+
+        <h2
+          style={{
+            fontSize: "42px",
+            marginBottom: "18px"
+          }}
+        >
+          Request Access
+        </h2>
+
+        <p
+          style={{
+            ...subtext,
+            maxWidth: "950px",
+            marginBottom: "25px"
+          }}
+        >
+          Request pilot access, sovereign mining intelligence
+          briefings, investor due diligence reports, corridor
+          intelligence, strategic minerals analysis or partnership
+          discussions with TerraNova Mining Intelligence.
+        </p>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))",
+            gap: "18px",
+            marginTop: "25px"
+          }}
+        >
+          <div style={contactCard}>
+            <h3 style={contactTitle}>Email</h3>
+
+            <p style={contactText}>
+              fred.mulenga@zerb.co.zm
+            </p>
+          </div>
+
+          <div style={contactCard}>
+            <h3 style={contactTitle}>Direct Line</h3>
+
+            <p style={contactText}>
+              (+260) 760 612 073
+            </p>
+          </div>
+
+          <div style={contactCard}>
+            <h3 style={contactTitle}>Mobile</h3>
+
+            <p style={contactText}>
+              0961 863 010
+            </p>
+          </div>
+
+          <div style={contactCard}>
+            <h3 style={contactTitle}>Coverage</h3>
+
+            <p style={contactText}>
+              Zambia • DRC • Southern Africa
+            </p>
+          </div>
+        </div>
+
+        <div
+          style={{
+            marginTop: "35px",
+            display: "flex",
+            gap: "18px",
+            flexWrap: "wrap"
+          }}
+        >
+          <a
+            href="mailto:fred.mulenga@zerb.co.zm"
+            style={button}
+          >
+            Request Intelligence Brief
+          </a>
+
+          <a
+            href="#licences"
+            style={secondaryButton}
+          >
+            View Intelligence Dashboard
+          </a>
+        </div>
       </section>
 
       <footer style={footer}>
@@ -565,6 +642,35 @@ const button = {
   borderRadius: "14px",
   fontWeight: "bold",
   textDecoration: "none"
+};
+
+const secondaryButton = {
+  display: "inline-block",
+  background: "transparent",
+  color: "white",
+  padding: "16px 28px",
+  borderRadius: "14px",
+  fontWeight: "bold",
+  textDecoration: "none",
+  border: "1px solid rgba(255,255,255,.25)"
+};
+
+const contactCard = {
+  background: "rgba(255,255,255,.05)",
+  border: "1px solid rgba(255,255,255,.08)",
+  borderRadius: "18px",
+  padding: "22px"
+};
+
+const contactTitle = {
+  color: "#53b8ff",
+  marginBottom: "10px"
+};
+
+const contactText = {
+  fontSize: "18px",
+  fontWeight: "600",
+  color: "white"
 };
 
 const footer = {
