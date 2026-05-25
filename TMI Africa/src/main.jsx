@@ -1,55 +1,6 @@
 import React, { useMemo, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { licences } from "./data";
-  {
-    id: "ZM-CAN-001",
-    company: "Sample Copper Exploration Ltd",
-    country: "Zambia",
-    province: "Copperbelt",
-    commodity: "Copper",
-    status: "Cancelled",
-    reason: "Non-compliance / inactivity",
-    date: "2026",
-    risk: "High",
-    score: 82
-  },
-  {
-    id: "ZM-CAN-002",
-    company: "North-West Minerals Ltd",
-    country: "Zambia",
-    province: "North-Western",
-    commodity: "Copper",
-    status: "Cancelled",
-    reason: "Licence default",
-    date: "2026",
-    risk: "Medium",
-    score: 74
-  },
-  {
-    id: "DRC-SUS-001",
-    company: "South Kivu Artisanal Cluster",
-    country: "DRC",
-    province: "South Kivu",
-    commodity: "Gold / Coltan",
-    status: "Suspended",
-    reason: "Government mining suspension",
-    date: "2026",
-    risk: "High",
-    score: 88
-  },
-  {
-    id: "DRC-SUS-002",
-    company: "Mwenga Mining Zone",
-    country: "DRC",
-    province: "Mwenga",
-    commodity: "Gold",
-    status: "Suspended",
-    reason: "Illegal mining control operation",
-    date: "2026",
-    risk: "High",
-    score: 90
-  }
-];
 
 function App() {
   const [country, setCountry] = useState("All");
@@ -60,13 +11,9 @@ function App() {
       const matchesCountry =
         country === "All" || item.country === country;
 
-      const matchesSearch =
-        item.company.toLowerCase().includes(search.toLowerCase()) ||
-        item.commodity.toLowerCase().includes(search.toLowerCase()) ||
-        item.province.toLowerCase().includes(search.toLowerCase()) ||
-        item.status.toLowerCase().includes(search.toLowerCase());
+      const text = `${item.company} ${item.commodity} ${item.province} ${item.status} ${item.category} ${item.sovereign}`.toLowerCase();
 
-      return matchesCountry && matchesSearch;
+      return matchesCountry && text.includes(search.toLowerCase());
     });
   }, [country, search]);
 
@@ -75,10 +22,7 @@ function App() {
       <header style={header}>
         <div>
           <h1 style={brand}>TerraNova</h1>
-
-          <p style={tagline}>
-            MINING INTELLIGENCE & ASSET MANAGEMENT
-          </p>
+          <p style={tagline}>MINING INTELLIGENCE & ASSET MANAGEMENT</p>
         </div>
 
         <nav style={nav}>
@@ -99,52 +43,34 @@ function App() {
         </h2>
 
         <p style={subtext}>
-          TerraNova Mining Intelligence tracks cancelled,
-          suspended, distressed and high-risk mining rights
-          across Zambia, DRC and strategic African mineral
-          corridors. TMI helps investors, banks, governments
-          and mining operators identify opportunities,
-          monitor sovereign risk and map strategic mining assets.
+          TerraNova Mining Intelligence tracks cancelled, suspended, distressed
+          and high-risk mining rights across Zambia, DRC and strategic African
+          mineral corridors. TMI helps investors, banks, governments and mining
+          operators identify opportunities, monitor sovereign risk and map
+          strategic mining assets.
         </p>
 
         <div style={metrics}>
-          <Metric
-            title="2,500+"
-            text="Zambia licence records ready for import"
-          />
-
-          <Metric
-            title="Zambia + DRC"
-            text="Priority intelligence markets"
-          />
-
-          <Metric
-            title="High Risk"
-            text="Licence revocation and suspension monitoring"
-          />
-
-          <Metric
-            title="Premium"
-            text="Investor-grade intelligence reports"
-          />
+          <Metric title="2,500+" text="Zambia licence records ready for import" />
+          <Metric title="Zambia + DRC" text="Priority intelligence markets" />
+          <Metric title="High Risk" text="Licence revocation and suspension monitoring" />
+          <Metric title="Premium" text="Investor-grade intelligence reports" />
         </div>
       </section>
 
       <section id="licences" style={panel}>
-        <p style={eyebrow}>
-          DISTRESSED LICENCE INTELLIGENCE
-        </p>
+        <p style={eyebrow}>REAL DATA ENGINE — PHASE 1</p>
 
         <h2>Licence Intelligence Dashboard</h2>
 
         <p style={subtext}>
-          Search, filter and monitor cancelled,
-          suspended and distressed mining licences.
+          Search, filter and monitor cancelled, suspended, distressed,
+          corridor-linked and strategic mineral mining assets.
         </p>
 
         <div style={filters}>
           <input
-            placeholder="Search company, province or commodity..."
+            placeholder="Search company, province, commodity, category or sovereign risk..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             style={input}
@@ -161,7 +87,14 @@ function App() {
           </select>
         </div>
 
-        <div style={{ overflowX: "auto" }}>
+        <div style={summaryGrid}>
+          <Summary title="Records" value={filtered.length} />
+          <Summary title="High Risk" value={filtered.filter(x => x.risk === "High").length} />
+          <Summary title="Strategic Minerals" value={filtered.filter(x => x.category.includes("Strategic") || x.category.includes("Critical")).length} />
+          <Summary title="Avg Opportunity" value={`${Math.round(filtered.reduce((a, b) => a + b.opportunity, 0) / (filtered.length || 1))}/100`} />
+        </div>
+
+        <div style={{ overflowX: "auto", marginTop: "25px" }}>
           <table style={table}>
             <thead>
               <tr>
@@ -173,6 +106,8 @@ function App() {
                 <Th>Status</Th>
                 <Th>Risk</Th>
                 <Th>Opportunity</Th>
+                <Th>Category</Th>
+                <Th>Sovereign</Th>
               </tr>
             </thead>
 
@@ -185,14 +120,10 @@ function App() {
                   <Td>{item.province}</Td>
                   <Td>{item.commodity}</Td>
                   <Td>{item.status}</Td>
-
-                  <Td>
-                    <span style={badge(item.risk)}>
-                      {item.risk}
-                    </span>
-                  </Td>
-
-                  <Td>{item.score}/100</Td>
+                  <Td><span style={badge(item.risk)}>{item.risk}</span></Td>
+                  <Td>{item.opportunity}/100</Td>
+                  <Td>{item.category}</Td>
+                  <Td>{item.sovereign}</Td>
                 </tr>
               ))}
             </tbody>
@@ -201,79 +132,40 @@ function App() {
       </section>
 
       <section id="sovereign" style={panel}>
-        <p style={eyebrow}>
-          AFRICA SOVEREIGN RISK INTELLIGENCE
-        </p>
+        <p style={eyebrow}>AFRICA SOVEREIGN RISK INTELLIGENCE</p>
 
         <h2>Sovereign Risk & Strategic Minerals Monitor</h2>
 
         <p style={subtext}>
-          Track resource nationalism, mining policy shifts,
-          state mining funds, licence revocations and strategic
-          mineral competition across Africa.
+          Track resource nationalism, mining policy shifts, state mining funds,
+          licence revocations and strategic mineral competition across Africa.
         </p>
 
         <div style={cards}>
-          <Card
-            title="Resource Nationalism Monitor"
-            text="Track state intervention, ownership shifts and mining policy changes."
-          />
-
-          <Card
-            title="Strategic Minerals Watch"
-            text="Monitor copper, cobalt, lithium, uranium, rare earths and critical minerals."
-          />
-
-          <Card
-            title="DRC Suspension Monitor"
-            text="Track South Kivu, Mwenga, Shabunda and other high-risk mineral zones."
-          />
-
-          <Card
-            title="Investor Due Diligence"
-            text="Screen investors, operators, suppliers and beneficial ownership risk."
-          />
+          <Card title="Resource Nationalism Monitor" text="Track state intervention, ownership shifts and mining policy changes." />
+          <Card title="Strategic Minerals Watch" text="Monitor copper, cobalt, lithium, uranium, rare earths and critical minerals." />
+          <Card title="DRC Suspension Monitor" text="Track South Kivu, Mwenga, Shabunda and high-risk mineral zones." />
+          <Card title="Investor Due Diligence" text="Screen investors, operators, suppliers and beneficial ownership risk." />
         </div>
       </section>
 
       <section id="alerts" style={panel}>
-        <p style={eyebrow}>
-          LIVE AFRICA RISK ALERTS
-        </p>
+        <p style={eyebrow}>LIVE AFRICA RISK ALERTS</p>
 
         <h2>Strategic Mining Developments</h2>
 
         <div style={cards}>
-          <Card
-            title="DRC Mining Suspensions"
-            text="South Kivu and Mwenga mining suspensions impacting gold and coltan operations."
-          />
-
-          <Card
-            title="Burkina Faso Sovereign Fund"
-            text="Burkina Faso moves to reclaim mining wealth through state-backed investment structures."
-          />
-
-          <Card
-            title="Critical Minerals Competition"
-            text="Global competition intensifies for African strategic minerals."
-          />
-
-          <Card
-            title="Resource Nationalism"
-            text="Monitor sovereign control, export restrictions and mining policy shifts."
-          />
+          <Card title="DRC Mining Suspensions" text="South Kivu and Mwenga mining suspensions impacting gold and coltan operations." />
+          <Card title="Burkina Faso Sovereign Fund" text="Burkina Faso moves to reclaim mining wealth through state-backed investment structures." />
+          <Card title="Critical Minerals Competition" text="Global competition intensifies for African strategic minerals." />
+          <Card title="Resource Nationalism" text="Monitor sovereign control, export restrictions and mining policy shifts." />
         </div>
       </section>
 
       <section id="strategic" style={panel}>
-        <p style={eyebrow}>
-          STRATEGIC MINERALS & CORRIDORS
-        </p>
+        <p style={eyebrow}>STRATEGIC MINERALS & CORRIDORS</p>
 
-        <h2>
-          Critical Minerals, Corridors & Opportunity Mapping
-        </h2>
+        <h2>Critical Minerals, Corridors & Opportunity Mapping</h2>
 
         <p style={subtext}>
           TMI connects mining assets to strategic mineral demand,
@@ -281,62 +173,29 @@ function App() {
         </p>
 
         <div style={cards}>
-          <Card
-            title="Copperbelt Intelligence"
-            text="Monitor Copperbelt and Katanga-linked copper and cobalt assets."
-          />
-
-          <Card
-            title="Lobito Corridor Monitor"
-            text="Track logistics, rail, border and mining developments."
-          />
-
-          <Card
-            title="TAZARA & Regional Rail"
-            text="Monitor rail infrastructure, PPPs and regional logistics risk."
-          />
-
-          <Card
-            title="Investor Opportunity Radar"
-            text="Rank distressed assets and strategic mining opportunities."
-          />
+          <Card title="Copperbelt Intelligence" text="Monitor Copperbelt and Katanga-linked copper and cobalt assets." />
+          <Card title="Lobito Corridor Monitor" text="Track logistics, rail, border and mining developments." />
+          <Card title="TAZARA & Regional Rail" text="Monitor rail infrastructure, PPPs and regional logistics risk." />
+          <Card title="Investor Opportunity Radar" text="Rank distressed assets and strategic mining opportunities." />
         </div>
       </section>
 
       <section style={panel}>
-        <p style={eyebrow}>
-          TERRA NOVA INTELLIGENCE NETWORK
-        </p>
+        <p style={eyebrow}>TERRA NOVA INTELLIGENCE NETWORK</p>
 
         <h2>Africa Mining Intelligence Infrastructure</h2>
 
         <p style={subtext}>
-          TerraNova Mining Intelligence is building a sovereign
-          mining intelligence and distressed asset monitoring
-          platform focused on Zambia, DRC and emerging African
-          resource corridors.
+          TerraNova Mining Intelligence is building a sovereign mining intelligence
+          and distressed asset monitoring platform focused on Zambia, DRC and
+          emerging African resource corridors.
         </p>
 
         <div style={cards}>
-          <Card
-            title="Cancelled Licence Intelligence"
-            text="Monitor distressed and revoked mining rights across Zambia and Africa."
-          />
-
-          <Card
-            title="Strategic Minerals Intelligence"
-            text="Track copper, cobalt, lithium, uranium and critical mineral assets."
-          />
-
-          <Card
-            title="Sovereign Risk Analytics"
-            text="Monitor mining policy shifts, sovereign funds and state mining intervention."
-          />
-
-          <Card
-            title="Investor Due Diligence"
-            text="Screen mining investors, operators, suppliers and beneficial ownership risk."
-          />
+          <Card title="Cancelled Licence Intelligence" text="Monitor distressed and revoked mining rights across Zambia and Africa." />
+          <Card title="Strategic Minerals Intelligence" text="Track copper, cobalt, lithium, uranium and critical mineral assets." />
+          <Card title="Sovereign Risk Analytics" text="Monitor mining policy shifts, sovereign funds and state mining intervention." />
+          <Card title="Investor Due Diligence" text="Screen mining investors, operators, suppliers and beneficial ownership risk." />
         </div>
       </section>
 
@@ -351,107 +210,54 @@ function App() {
           border: "1px solid rgba(83,184,255,.15)"
         }}
       >
-        <p
-          style={{
-            color: "#53b8ff",
-            fontWeight: "bold",
-            letterSpacing: "2px",
-            marginBottom: "10px"
-          }}
-        >
-          TMI ACCESS & PARTNERSHIPS
-        </p>
+        <p style={eyebrow}>TMI ACCESS & PARTNERSHIPS</p>
 
-        <h2
-          style={{
-            fontSize: "42px",
-            marginBottom: "18px"
-          }}
-        >
+        <h2 style={{ fontSize: "42px", marginBottom: "18px" }}>
           Request Access
         </h2>
 
-        <p
-          style={{
-            ...subtext,
-            maxWidth: "950px",
-            marginBottom: "25px"
-          }}
-        >
-          Request pilot access, sovereign mining intelligence
-          briefings, investor due diligence reports, corridor
-          intelligence, strategic minerals analysis or partnership
-          discussions with TerraNova Mining Intelligence.
+        <p style={{ ...subtext, maxWidth: "950px", marginBottom: "25px" }}>
+          Request pilot access, sovereign mining intelligence briefings,
+          investor due diligence reports, corridor intelligence, strategic
+          minerals analysis or partnership discussions with TerraNova Mining
+          Intelligence.
         </p>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))",
-            gap: "18px",
-            marginTop: "25px"
-          }}
-        >
+        <div style={contactGrid}>
           <div style={contactCard}>
             <h3 style={contactTitle}>Email</h3>
-
-            <p style={contactText}>
-              fred.mulenga@zerb.co.zm
-            </p>
+            <p style={contactText}>fred.mulenga@zerb.co.zm</p>
           </div>
 
           <div style={contactCard}>
             <h3 style={contactTitle}>Direct Line</h3>
-
-            <p style={contactText}>
-              (+260) 760 612 073
-            </p>
+            <p style={contactText}>(+260) 760 612 073</p>
           </div>
 
           <div style={contactCard}>
             <h3 style={contactTitle}>Mobile</h3>
-
-            <p style={contactText}>
-              0961 863 010
-            </p>
+            <p style={contactText}>0961 863 010</p>
           </div>
 
           <div style={contactCard}>
             <h3 style={contactTitle}>Coverage</h3>
-
-            <p style={contactText}>
-              Zambia • DRC • Southern Africa
-            </p>
+            <p style={contactText}>Zambia • DRC • Southern Africa</p>
           </div>
         </div>
 
-        <div
-          style={{
-            marginTop: "35px",
-            display: "flex",
-            gap: "18px",
-            flexWrap: "wrap"
-          }}
-        >
-          <a
-            href="mailto:fred.mulenga@zerb.co.zm"
-            style={button}
-          >
+        <div style={{ marginTop: "35px", display: "flex", gap: "18px", flexWrap: "wrap" }}>
+          <a href="mailto:fred.mulenga@zerb.co.zm" style={button}>
             Request Intelligence Brief
           </a>
 
-          <a
-            href="#licences"
-            style={secondaryButton}
-          >
+          <a href="#licences" style={secondaryButton}>
             View Intelligence Dashboard
           </a>
         </div>
       </section>
 
       <footer style={footer}>
-        © 2026 TerraNova Mining Intelligence.
-        All rights reserved.
+        © 2026 TerraNova Mining Intelligence. All rights reserved.
       </footer>
     </main>
   );
@@ -462,6 +268,15 @@ function Metric({ title, text }) {
     <div style={metricCard}>
       <strong>{title}</strong>
       <span>{text}</span>
+    </div>
+  );
+}
+
+function Summary({ title, value }) {
+  return (
+    <div style={summaryCard}>
+      <span>{title}</span>
+      <strong>{value}</strong>
     </div>
   );
 }
@@ -484,8 +299,7 @@ function Td({ children }) {
 }
 
 const page = {
-  background:
-    "linear-gradient(180deg, #050816 0%, #07142b 45%, #0b1f3f 100%)",
+  background: "linear-gradient(180deg, #050816 0%, #07142b 45%, #0b1f3f 100%)",
   color: "white",
   fontFamily: "Arial, sans-serif",
   padding: "40px",
@@ -586,7 +400,23 @@ const input = {
   padding: "14px",
   borderRadius: "10px",
   border: "1px solid #334155",
-  minWidth: "240px"
+  minWidth: "260px"
+};
+
+const summaryGrid = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit,minmax(180px,1fr))",
+  gap: "15px"
+};
+
+const summaryCard = {
+  background: "rgba(83,184,255,.08)",
+  border: "1px solid rgba(83,184,255,.15)",
+  borderRadius: "14px",
+  padding: "18px",
+  display: "flex",
+  justifyContent: "space-between",
+  gap: "10px"
 };
 
 const table = {
@@ -599,17 +429,18 @@ const th = {
   padding: "14px",
   textAlign: "left",
   borderBottom: "1px solid rgba(255,255,255,.12)",
-  color: "#93c5fd"
+  color: "#93c5fd",
+  whiteSpace: "nowrap"
 };
 
 const td = {
   padding: "14px",
-  borderBottom: "1px solid rgba(255,255,255,.08)"
+  borderBottom: "1px solid rgba(255,255,255,.08)",
+  whiteSpace: "nowrap"
 };
 
 const badge = (risk) => ({
-  background:
-    risk === "High" ? "#991b1b" : "#92400e",
+  background: risk === "High" ? "#991b1b" : risk === "Medium" ? "#92400e" : "#065f46",
   color: "white",
   padding: "6px 12px",
   borderRadius: "999px",
@@ -654,6 +485,13 @@ const secondaryButton = {
   border: "1px solid rgba(255,255,255,.25)"
 };
 
+const contactGrid = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))",
+  gap: "18px",
+  marginTop: "25px"
+};
+
 const contactCard = {
   background: "rgba(255,255,255,.05)",
   border: "1px solid rgba(255,255,255,.08)",
@@ -673,14 +511,12 @@ const contactText = {
 };
 
 const footer = {
-  marginTop: "60px",
-  padding: "40px 0",
+  marginTop: "30px",
+  padding: "30px 0",
   textAlign: "center",
   color: "#8fa2b5",
   fontSize: "14px",
   borderTop: "1px solid rgba(255,255,255,.08)"
 };
 
-ReactDOM.createRoot(
-  document.getElementById("root")
-).render(<App />);
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
