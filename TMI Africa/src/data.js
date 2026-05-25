@@ -12,7 +12,6 @@ export const licences = [
     category: "Distressed Asset",
     sovereign: "Moderate"
   },
-
   {
     id: "ZM-CAN-002",
     company: "Northwest Gold Ventures",
@@ -26,7 +25,6 @@ export const licences = [
     category: "Re-entry Opportunity",
     sovereign: "Moderate"
   },
-
   {
     id: "ZM-EXP-003",
     company: "Strategic Cobalt Zambia",
@@ -40,7 +38,6 @@ export const licences = [
     category: "Strategic Minerals",
     sovereign: "Moderate"
   },
-
   {
     id: "DRC-SUS-001",
     company: "South Kivu Artisanal Cluster",
@@ -54,7 +51,6 @@ export const licences = [
     category: "High-Risk Zone",
     sovereign: "High"
   },
-
   {
     id: "DRC-SUS-002",
     company: "Mwenga Mining Zone",
@@ -68,7 +64,6 @@ export const licences = [
     category: "Conflict Minerals",
     sovereign: "High"
   },
-
   {
     id: "DRC-COP-003",
     company: "Katanga Copper Holdings",
@@ -82,7 +77,6 @@ export const licences = [
     category: "Strategic Minerals",
     sovereign: "High"
   },
-
   {
     id: "ZM-LIT-004",
     company: "Lobito Corridor Copper JV",
@@ -96,7 +90,6 @@ export const licences = [
     category: "Corridor Asset",
     sovereign: "Low"
   },
-
   {
     id: "ZM-RARE-005",
     company: "Critical Minerals Zambia",
