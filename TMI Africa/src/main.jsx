@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from "react";
 import ReactDOM from "react-dom/client";
-
-const licences = [
+import { licences } from "./data";
   {
     id: "ZM-CAN-001",
     company: "Sample Copper Exploration Ltd",
