@@ -10,8 +10,12 @@ export const licences = [
     opportunity: 88,
     reason: "Licence inactivity",
     category: "Distressed Asset",
-    sovereign: "Moderate"
+    sovereign: "Moderate",
+    owner: "Local",
+    corridor: "Copperbelt",
+    minerals: "Copper"
   },
+
   {
     id: "ZM-CAN-002",
     company: "Northwest Gold Ventures",
@@ -23,8 +27,12 @@ export const licences = [
     opportunity: 79,
     reason: "Non-compliance",
     category: "Re-entry Opportunity",
-    sovereign: "Moderate"
+    sovereign: "Moderate",
+    owner: "Private",
+    corridor: "North-Western",
+    minerals: "Gold"
   },
+
   {
     id: "ZM-EXP-003",
     company: "Strategic Cobalt Zambia",
@@ -36,47 +44,12 @@ export const licences = [
     opportunity: 83,
     reason: "Ownership restructuring",
     category: "Strategic Minerals",
-    sovereign: "Moderate"
+    sovereign: "Moderate",
+    owner: "Foreign JV",
+    corridor: "Copperbelt",
+    minerals: "Cobalt"
   },
-  {
-    id: "DRC-SUS-001",
-    company: "South Kivu Artisanal Cluster",
-    country: "DRC",
-    province: "South Kivu",
-    commodity: "Gold / Coltan",
-    status: "Suspended",
-    risk: "High",
-    opportunity: 91,
-    reason: "Government suspension",
-    category: "High-Risk Zone",
-    sovereign: "High"
-  },
-  {
-    id: "DRC-SUS-002",
-    company: "Mwenga Mining Zone",
-    country: "DRC",
-    province: "Mwenga",
-    commodity: "Gold",
-    status: "Suspended",
-    risk: "High",
-    opportunity: 93,
-    reason: "Security and illegal mining",
-    category: "Conflict Minerals",
-    sovereign: "High"
-  },
-  {
-    id: "DRC-COP-003",
-    company: "Katanga Copper Holdings",
-    country: "DRC",
-    province: "Katanga",
-    commodity: "Copper / Cobalt",
-    status: "Revoked",
-    risk: "High",
-    opportunity: 90,
-    reason: "Licence revocation",
-    category: "Strategic Minerals",
-    sovereign: "High"
-  },
+
   {
     id: "ZM-LIT-004",
     company: "Lobito Corridor Copper JV",
@@ -88,8 +61,12 @@ export const licences = [
     opportunity: 95,
     reason: "Strategic corridor investment",
     category: "Corridor Asset",
-    sovereign: "Low"
+    sovereign: "Low",
+    owner: "International",
+    corridor: "Lobito",
+    minerals: "Copper"
   },
+
   {
     id: "ZM-RARE-005",
     company: "Critical Minerals Zambia",
@@ -101,6 +78,179 @@ export const licences = [
     opportunity: 92,
     reason: "Strategic minerals expansion",
     category: "Critical Minerals",
-    sovereign: "Moderate"
+    sovereign: "Moderate",
+    owner: "Private",
+    corridor: "Central",
+    minerals: "Lithium"
+  },
+
+  {
+    id: "ZM-URA-006",
+    company: "Zambezi Uranium Holdings",
+    country: "Zambia",
+    province: "Southern",
+    commodity: "Uranium",
+    status: "Pending",
+    risk: "Medium",
+    opportunity: 86,
+    reason: "Environmental review",
+    category: "Strategic Minerals",
+    sovereign: "Moderate",
+    owner: "Foreign",
+    corridor: "Southern",
+    minerals: "Uranium"
+  },
+
+  {
+    id: "ZM-NKL-007",
+    company: "African Nickel Resources",
+    country: "Zambia",
+    province: "Muchinga",
+    commodity: "Nickel",
+    status: "Exploration",
+    risk: "Low",
+    opportunity: 87,
+    reason: "New exploration programme",
+    category: "Battery Minerals",
+    sovereign: "Low",
+    owner: "Private",
+    corridor: "TAZARA",
+    minerals: "Nickel"
+  },
+
+  {
+    id: "DRC-SUS-001",
+    company: "South Kivu Artisanal Cluster",
+    country: "DRC",
+    province: "South Kivu",
+    commodity: "Gold / Coltan",
+    status: "Suspended",
+    risk: "High",
+    opportunity: 91,
+    reason: "Government suspension",
+    category: "High-Risk Zone",
+    sovereign: "High",
+    owner: "Unknown",
+    corridor: "Eastern DRC",
+    minerals: "Gold"
+  },
+
+  {
+    id: "DRC-SUS-002",
+    company: "Mwenga Mining Zone",
+    country: "DRC",
+    province: "Mwenga",
+    commodity: "Gold",
+    status: "Suspended",
+    risk: "High",
+    opportunity: 93,
+    reason: "Security and illegal mining",
+    category: "Conflict Minerals",
+    sovereign: "High",
+    owner: "Unknown",
+    corridor: "Eastern DRC",
+    minerals: "Gold"
+  },
+
+  {
+    id: "DRC-COP-003",
+    company: "Katanga Copper Holdings",
+    country: "DRC",
+    province: "Katanga",
+    commodity: "Copper / Cobalt",
+    status: "Revoked",
+    risk: "High",
+    opportunity: 90,
+    reason: "Licence revocation",
+    category: "Strategic Minerals",
+    sovereign: "High",
+    owner: "Foreign",
+    corridor: "Katanga",
+    minerals: "Copper"
+  },
+
+  {
+    id: "DRC-SHB-004",
+    company: "Shabunda Coltan Network",
+    country: "DRC",
+    province: "Shabunda",
+    commodity: "Coltan",
+    status: "Suspended",
+    risk: "High",
+    opportunity: 94,
+    reason: "Conflict mineral controls",
+    category: "Conflict Minerals",
+    sovereign: "High",
+    owner: "Unknown",
+    corridor: "Eastern DRC",
+    minerals: "Coltan"
+  },
+
+  {
+    id: "DRC-LTH-005",
+    company: "Congo Lithium Basin",
+    country: "DRC",
+    province: "Tanganyika",
+    commodity: "Lithium",
+    status: "Exploration",
+    risk: "Medium",
+    opportunity: 96,
+    reason: "Critical minerals demand",
+    category: "Critical Minerals",
+    sovereign: "High",
+    owner: "International",
+    corridor: "Tanganyika",
+    minerals: "Lithium"
+  },
+
+  {
+    id: "DRC-COB-006",
+    company: "Katanga Strategic Cobalt",
+    country: "DRC",
+    province: "Katanga",
+    commodity: "Cobalt",
+    status: "Active",
+    risk: "Medium",
+    opportunity: 97,
+    reason: "Battery minerals expansion",
+    category: "Battery Minerals",
+    sovereign: "High",
+    owner: "Foreign",
+    corridor: "Katanga",
+    minerals: "Cobalt"
+  },
+
+  {
+    id: "AGO-COP-001",
+    company: "Angola Copper Logistics JV",
+    country: "Angola",
+    province: "Moxico",
+    commodity: "Copper",
+    status: "Active",
+    risk: "Medium",
+    opportunity: 89,
+    reason: "Lobito corridor investment",
+    category: "Corridor Asset",
+    sovereign: "Moderate",
+    owner: "International",
+    corridor: "Lobito",
+    minerals: "Copper"
+  },
+
+  {
+    id: "BFA-GOLD-001",
+    company: "Burkina Sovereign Gold Assets",
+    country: "Burkina Faso",
+    province: "Ouagadougou",
+    commodity: "Gold",
+    status: "State Review",
+    risk: "High",
+    opportunity: 85,
+    reason: "State mining fund restructuring",
+    category: "Resource Nationalism",
+    sovereign: "High",
+    owner: "State",
+    corridor: "Sahel",
+    minerals: "Gold"
   }
 ];
