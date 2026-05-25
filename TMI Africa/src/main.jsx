@@ -11,66 +11,178 @@ function App() {
       const matchesCountry =
         country === "All" || item.country === country;
 
-      const text = `${item.company} ${item.commodity} ${item.province} ${item.status} ${item.category} ${item.sovereign}`.toLowerCase();
+      const text =
+        `${item.company} ${item.commodity} ${item.province} ${item.category}`
+          .toLowerCase();
 
       return matchesCountry && text.includes(search.toLowerCase());
     });
   }, [country, search]);
+
+  const highRisk = filtered.filter((x) => x.risk === "High").length;
+
+  const strategic = filtered.filter(
+    (x) =>
+      x.category.includes("Strategic") ||
+      x.category.includes("Critical")
+  ).length;
+
+  const avgOpportunity = Math.round(
+    filtered.reduce((a, b) => a + b.opportunity, 0) /
+      filtered.length
+  );
+
+  const commodityStats = {};
+
+  filtered.forEach((item) => {
+    commodityStats[item.minerals] =
+      (commodityStats[item.minerals] || 0) + 1;
+  });
 
   return (
     <main style={page}>
       <header style={header}>
         <div>
           <h1 style={brand}>TerraNova</h1>
-          <p style={tagline}>MINING INTELLIGENCE & ASSET MANAGEMENT</p>
+          <p style={tagline}>
+            MINING INTELLIGENCE & ASSET MANAGEMENT
+          </p>
         </div>
 
         <nav style={nav}>
           <a href="#dashboard" style={link}>Dashboard</a>
-          <a href="#licences" style={link}>Licences</a>
-          <a href="#sovereign" style={link}>Sovereign Risk</a>
-          <a href="#alerts" style={link}>Risk Alerts</a>
-          <a href="#strategic" style={link}>Strategic Minerals</a>
+          <a href="#heatmap" style={link}>Heatmap</a>
+          <a href="#analytics" style={link}>Analytics</a>
+          <a href="#alerts" style={link}>Alerts</a>
           <a href="#contact" style={link}>Contact</a>
         </nav>
       </header>
 
-      <section id="dashboard" style={hero}>
+      <section style={hero}>
         <p style={eyebrow}>TMI.AFRICA</p>
 
-        <h2 style={headline}>
-          Distressed Mining Assets & Sovereign Risk Intelligence
-        </h2>
+        <h1 style={headline}>
+          Africa Strategic Minerals & Sovereign Risk Intelligence
+        </h1>
 
         <p style={subtext}>
-          TerraNova Mining Intelligence tracks cancelled, suspended, distressed
-          and high-risk mining rights across Zambia, DRC and strategic African
-          mineral corridors. TMI helps investors, banks, governments and mining
-          operators identify opportunities, monitor sovereign risk and map
-          strategic mining assets.
+          TerraNova Mining Intelligence monitors distressed
+          mining assets, strategic minerals, sovereign risk,
+          corridor infrastructure and investor intelligence
+          across Africa.
         </p>
 
         <div style={metrics}>
-          <Metric title="2,500+" text="Zambia licence records ready for import" />
-          <Metric title="Zambia + DRC" text="Priority intelligence markets" />
-          <Metric title="High Risk" text="Licence revocation and suspension monitoring" />
-          <Metric title="Premium" text="Investor-grade intelligence reports" />
+          <Metric title="15" text="Mining Intelligence Records" />
+          <Metric title="6" text="High-Risk Mining Assets" />
+          <Metric title="5" text="Strategic Minerals Assets" />
+          <Metric title="90/100" text="Average Opportunity Score" />
         </div>
       </section>
 
-      <section id="licences" style={panel}>
-        <p style={eyebrow}>REAL DATA ENGINE — PHASE 1</p>
+      <section id="heatmap" style={panel}>
+        <p style={eyebrow}>AFRICA SOVEREIGN RISK HEATMAP</p>
+
+        <h2>Sovereign Mining Risk Monitor</h2>
+
+        <div style={heatmapGrid}>
+          <HeatCard
+            country="DRC"
+            risk="HIGH"
+            color="#dc2626"
+            note="Conflict minerals, suspensions and resource nationalism"
+          />
+
+          <HeatCard
+            country="Burkina Faso"
+            risk="HIGH"
+            color="#ea580c"
+            note="State mining fund and sovereign intervention"
+          />
+
+          <HeatCard
+            country="Zambia"
+            risk="MODERATE"
+            color="#eab308"
+            note="Strategic minerals and corridor expansion"
+          />
+
+          <HeatCard
+            country="Angola"
+            risk="MODERATE"
+            color="#f59e0b"
+            note="Lobito corridor investment activity"
+          />
+
+          <HeatCard
+            country="Botswana"
+            risk="LOW"
+            color="#16a34a"
+            note="Stable mining governance environment"
+          />
+
+          <HeatCard
+            country="Tanzania"
+            risk="MODERATE"
+            color="#f59e0b"
+            note="Resource nationalism monitoring"
+          />
+        </div>
+      </section>
+
+      <section id="analytics" style={panel}>
+        <p style={eyebrow}>EXECUTIVE ANALYTICS</p>
+
+        <h2>Mining Intelligence Analytics Dashboard</h2>
+
+        <div style={summaryGrid}>
+          <Summary title="Records" value={filtered.length} />
+          <Summary title="High Risk" value={highRisk} />
+          <Summary title="Strategic Minerals" value={strategic} />
+          <Summary title="Avg Opportunity" value={`${avgOpportunity}/100`} />
+        </div>
+
+        <div style={charts}>
+          <div style={chartCard}>
+            <h3>Commodity Intelligence Distribution</h3>
+
+            {Object.entries(commodityStats).map(([name, value]) => (
+              <div key={name} style={{ marginBottom: "15px" }}>
+                <div style={chartLabel}>
+                  <span>{name}</span>
+                  <span>{value}</span>
+                </div>
+
+                <div style={barBg}>
+                  <div
+                    style={{
+                      ...barFill,
+                      width: `${value * 20}%`
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={chartCard}>
+            <h3>Sovereign Risk Distribution</h3>
+
+            <RiskRow label="High Risk" value="40%" color="#dc2626" />
+            <RiskRow label="Moderate Risk" value="45%" color="#f59e0b" />
+            <RiskRow label="Low Risk" value="15%" color="#16a34a" />
+          </div>
+        </div>
+      </section>
+
+      <section style={panel}>
+        <p style={eyebrow}>LIVE LICENCE INTELLIGENCE</p>
 
         <h2>Licence Intelligence Dashboard</h2>
 
-        <p style={subtext}>
-          Search, filter and monitor cancelled, suspended, distressed,
-          corridor-linked and strategic mineral mining assets.
-        </p>
-
         <div style={filters}>
           <input
-            placeholder="Search company, province, commodity, category or sovereign risk..."
+            placeholder="Search company, commodity or province..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             style={input}
@@ -84,30 +196,23 @@ function App() {
             <option>All</option>
             <option>Zambia</option>
             <option>DRC</option>
+            <option>Angola</option>
+            <option>Burkina Faso</option>
           </select>
         </div>
 
-        <div style={summaryGrid}>
-          <Summary title="Records" value={filtered.length} />
-          <Summary title="High Risk" value={filtered.filter(x => x.risk === "High").length} />
-          <Summary title="Strategic Minerals" value={filtered.filter(x => x.category.includes("Strategic") || x.category.includes("Critical")).length} />
-          <Summary title="Avg Opportunity" value={`${Math.round(filtered.reduce((a, b) => a + b.opportunity, 0) / (filtered.length || 1))}/100`} />
-        </div>
-
-        <div style={{ overflowX: "auto", marginTop: "25px" }}>
+        <div style={{ overflowX: "auto" }}>
           <table style={table}>
             <thead>
               <tr>
                 <Th>Licence ID</Th>
-                <Th>Company / Zone</Th>
+                <Th>Company</Th>
                 <Th>Country</Th>
                 <Th>Province</Th>
                 <Th>Commodity</Th>
                 <Th>Status</Th>
                 <Th>Risk</Th>
                 <Th>Opportunity</Th>
-                <Th>Category</Th>
-                <Th>Sovereign</Th>
               </tr>
             </thead>
 
@@ -120,10 +225,14 @@ function App() {
                   <Td>{item.province}</Td>
                   <Td>{item.commodity}</Td>
                   <Td>{item.status}</Td>
-                  <Td><span style={badge(item.risk)}>{item.risk}</span></Td>
+
+                  <Td>
+                    <span style={badge(item.risk)}>
+                      {item.risk}
+                    </span>
+                  </Td>
+
                   <Td>{item.opportunity}/100</Td>
-                  <Td>{item.category}</Td>
-                  <Td>{item.sovereign}</Td>
                 </tr>
               ))}
             </tbody>
@@ -131,133 +240,61 @@ function App() {
         </div>
       </section>
 
-      <section id="sovereign" style={panel}>
-        <p style={eyebrow}>AFRICA SOVEREIGN RISK INTELLIGENCE</p>
-
-        <h2>Sovereign Risk & Strategic Minerals Monitor</h2>
-
-        <p style={subtext}>
-          Track resource nationalism, mining policy shifts, state mining funds,
-          licence revocations and strategic mineral competition across Africa.
-        </p>
-
-        <div style={cards}>
-          <Card title="Resource Nationalism Monitor" text="Track state intervention, ownership shifts and mining policy changes." />
-          <Card title="Strategic Minerals Watch" text="Monitor copper, cobalt, lithium, uranium, rare earths and critical minerals." />
-          <Card title="DRC Suspension Monitor" text="Track South Kivu, Mwenga, Shabunda and high-risk mineral zones." />
-          <Card title="Investor Due Diligence" text="Screen investors, operators, suppliers and beneficial ownership risk." />
-        </div>
-      </section>
-
       <section id="alerts" style={panel}>
-        <p style={eyebrow}>LIVE AFRICA RISK ALERTS</p>
+        <p style={eyebrow}>LIVE AFRICA MINING ALERTS</p>
 
-        <h2>Strategic Mining Developments</h2>
+        <h2>Strategic Intelligence Alerts</h2>
 
         <div style={cards}>
-          <Card title="DRC Mining Suspensions" text="South Kivu and Mwenga mining suspensions impacting gold and coltan operations." />
-          <Card title="Burkina Faso Sovereign Fund" text="Burkina Faso moves to reclaim mining wealth through state-backed investment structures." />
-          <Card title="Critical Minerals Competition" text="Global competition intensifies for African strategic minerals." />
-          <Card title="Resource Nationalism" text="Monitor sovereign control, export restrictions and mining policy shifts." />
+          <AlertCard
+            title="DRC Mining Suspensions"
+            text="South Kivu, Mwenga and Shabunda remain high-risk mining zones."
+          />
+
+          <AlertCard
+            title="Burkina Faso Sovereign Mining Fund"
+            text="Government-backed sovereign mining investment restructuring underway."
+          />
+
+          <AlertCard
+            title="Critical Minerals Competition"
+            text="Copper, cobalt and lithium demand accelerating across Africa."
+          />
+
+          <AlertCard
+            title="Lobito Corridor Expansion"
+            text="Rail, logistics and strategic corridor investment accelerating."
+          />
         </div>
       </section>
 
-      <section id="strategic" style={panel}>
-        <p style={eyebrow}>STRATEGIC MINERALS & CORRIDORS</p>
-
-        <h2>Critical Minerals, Corridors & Opportunity Mapping</h2>
-
-        <p style={subtext}>
-          TMI connects mining assets to strategic mineral demand,
-          regional corridors and investor risk signals across Africa.
-        </p>
-
-        <div style={cards}>
-          <Card title="Copperbelt Intelligence" text="Monitor Copperbelt and Katanga-linked copper and cobalt assets." />
-          <Card title="Lobito Corridor Monitor" text="Track logistics, rail, border and mining developments." />
-          <Card title="TAZARA & Regional Rail" text="Monitor rail infrastructure, PPPs and regional logistics risk." />
-          <Card title="Investor Opportunity Radar" text="Rank distressed assets and strategic mining opportunities." />
-        </div>
-      </section>
-
-      <section style={panel}>
-        <p style={eyebrow}>TERRA NOVA INTELLIGENCE NETWORK</p>
-
-        <h2>Africa Mining Intelligence Infrastructure</h2>
-
-        <p style={subtext}>
-          TerraNova Mining Intelligence is building a sovereign mining intelligence
-          and distressed asset monitoring platform focused on Zambia, DRC and
-          emerging African resource corridors.
-        </p>
-
-        <div style={cards}>
-          <Card title="Cancelled Licence Intelligence" text="Monitor distressed and revoked mining rights across Zambia and Africa." />
-          <Card title="Strategic Minerals Intelligence" text="Track copper, cobalt, lithium, uranium and critical mineral assets." />
-          <Card title="Sovereign Risk Analytics" text="Monitor mining policy shifts, sovereign funds and state mining intervention." />
-          <Card title="Investor Due Diligence" text="Screen mining investors, operators, suppliers and beneficial ownership risk." />
-        </div>
-      </section>
-
-      <section
-        id="contact"
-        style={{
-          ...panel,
-          marginTop: "40px",
-          padding: "40px",
-          background:
-            "linear-gradient(135deg, rgba(15,23,42,.95), rgba(10,40,80,.95))",
-          border: "1px solid rgba(83,184,255,.15)"
-        }}
-      >
+      <section id="contact" style={contactSection}>
         <p style={eyebrow}>TMI ACCESS & PARTNERSHIPS</p>
 
-        <h2 style={{ fontSize: "42px", marginBottom: "18px" }}>
-          Request Access
-        </h2>
+        <h2>Request Access</h2>
 
-        <p style={{ ...subtext, maxWidth: "950px", marginBottom: "25px" }}>
-          Request pilot access, sovereign mining intelligence briefings,
-          investor due diligence reports, corridor intelligence, strategic
-          minerals analysis or partnership discussions with TerraNova Mining
-          Intelligence.
+        <p style={subtext}>
+          Request intelligence briefings, sovereign mining reports,
+          investor due diligence, strategic minerals analysis and
+          corridor intelligence.
         </p>
 
         <div style={contactGrid}>
-          <div style={contactCard}>
-            <h3 style={contactTitle}>Email</h3>
-            <p style={contactText}>fred.mulenga@zerb.co.zm</p>
-          </div>
-
-          <div style={contactCard}>
-            <h3 style={contactTitle}>Direct Line</h3>
-            <p style={contactText}>(+260) 760 612 073</p>
-          </div>
-
-          <div style={contactCard}>
-            <h3 style={contactTitle}>Mobile</h3>
-            <p style={contactText}>0961 863 010</p>
-          </div>
-
-          <div style={contactCard}>
-            <h3 style={contactTitle}>Coverage</h3>
-            <p style={contactText}>Zambia • DRC • Southern Africa</p>
-          </div>
+          <Contact title="Email" value="fred.mulenga@zerb.co.zm" />
+          <Contact title="Direct Line" value="(+260) 760 612 073" />
+          <Contact title="Mobile" value="0961 863 010" />
+          <Contact title="Coverage" value="Zambia • DRC • Africa" />
         </div>
 
-        <div style={{ marginTop: "35px", display: "flex", gap: "18px", flexWrap: "wrap" }}>
+        <div style={{ marginTop: "30px" }}>
           <a href="mailto:fred.mulenga@zerb.co.zm" style={button}>
             Request Intelligence Brief
-          </a>
-
-          <a href="#licences" style={secondaryButton}>
-            View Intelligence Dashboard
           </a>
         </div>
       </section>
 
       <footer style={footer}>
-        © 2026 TerraNova Mining Intelligence. All rights reserved.
+        © 2026 TerraNova Mining Intelligence.
       </footer>
     </main>
   );
@@ -266,8 +303,8 @@ function App() {
 function Metric({ title, text }) {
   return (
     <div style={metricCard}>
-      <strong>{title}</strong>
-      <span>{text}</span>
+      <h3>{title}</h3>
+      <p>{text}</p>
     </div>
   );
 }
@@ -281,11 +318,65 @@ function Summary({ title, value }) {
   );
 }
 
-function Card({ title, text }) {
+function HeatCard({ country, risk, color, note }) {
+  return (
+    <div style={{ ...heatCard, borderTop: `5px solid ${color}` }}>
+      <h3>{country}</h3>
+
+      <div
+        style={{
+          background: color,
+          color: "white",
+          display: "inline-block",
+          padding: "6px 12px",
+          borderRadius: "999px",
+          fontWeight: "bold",
+          marginBottom: "15px"
+        }}
+      >
+        {risk}
+      </div>
+
+      <p>{note}</p>
+    </div>
+  );
+}
+
+function RiskRow({ label, value, color }) {
+  return (
+    <div style={{ marginBottom: "18px" }}>
+      <div style={chartLabel}>
+        <span>{label}</span>
+        <span>{value}</span>
+      </div>
+
+      <div style={barBg}>
+        <div
+          style={{
+            ...barFill,
+            background: color,
+            width: value
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
+function AlertCard({ title, text }) {
   return (
     <div style={card}>
       <h3>{title}</h3>
       <p>{text}</p>
+    </div>
+  );
+}
+
+function Contact({ title, value }) {
+  return (
+    <div style={contactCard}>
+      <h3>{title}</h3>
+      <p>{value}</p>
     </div>
   );
 }
@@ -299,21 +390,20 @@ function Td({ children }) {
 }
 
 const page = {
-  background: "linear-gradient(180deg, #050816 0%, #07142b 45%, #0b1f3f 100%)",
+  background:
+    "linear-gradient(180deg,#020617,#071226,#0b1e3d)",
   color: "white",
   fontFamily: "Arial, sans-serif",
   padding: "40px",
-  minHeight: "100vh",
-  overflowX: "hidden"
+  minHeight: "100vh"
 };
 
 const header = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  flexWrap: "wrap",
   marginBottom: "50px",
-  gap: "20px"
+  flexWrap: "wrap"
 };
 
 const brand = {
@@ -323,14 +413,13 @@ const brand = {
 };
 
 const tagline = {
-  letterSpacing: "4px",
   color: "#cbd5e1",
-  marginTop: "6px"
+  letterSpacing: "4px"
 };
 
 const nav = {
   display: "flex",
-  gap: "22px",
+  gap: "20px",
   flexWrap: "wrap"
 };
 
@@ -345,55 +434,111 @@ const hero = {
 };
 
 const eyebrow = {
-  color: "#53b8ff",
-  fontWeight: "bold",
-  letterSpacing: "2px"
+  color: "#38bdf8",
+  letterSpacing: "2px",
+  fontWeight: "bold"
 };
 
 const headline = {
-  fontSize: "58px",
-  maxWidth: "1050px",
+  fontSize: "62px",
+  maxWidth: "1000px",
   lineHeight: "1.1"
 };
 
 const subtext = {
-  maxWidth: "1100px",
-  lineHeight: "1.8",
   color: "#d0d8e7",
-  fontSize: "18px"
+  lineHeight: "1.8",
+  maxWidth: "1000px"
 };
 
 const metrics = {
   display: "grid",
   gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
   gap: "18px",
-  marginTop: "35px"
+  marginTop: "30px"
 };
 
 const metricCard = {
-  background: "rgba(255,255,255,.06)",
-  border: "1px solid rgba(255,255,255,.08)",
+  background: "rgba(255,255,255,.05)",
+  padding: "25px",
   borderRadius: "18px",
-  padding: "22px",
-  display: "flex",
-  flexDirection: "column",
-  gap: "10px"
+  border: "1px solid rgba(255,255,255,.08)"
 };
 
 const panel = {
-  marginTop: "45px",
-  padding: "40px",
+  background: "rgba(255,255,255,.04)",
   borderRadius: "24px",
+  padding: "40px",
+  marginTop: "40px",
+  border: "1px solid rgba(255,255,255,.08)"
+};
+
+const heatmapGrid = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))",
+  gap: "20px",
+  marginTop: "25px"
+};
+
+const heatCard = {
   background: "rgba(255,255,255,.05)",
-  border: "1px solid rgba(255,255,255,.08)",
-  backdropFilter: "blur(10px)"
+  borderRadius: "18px",
+  padding: "22px"
+};
+
+const summaryGrid = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit,minmax(180px,1fr))",
+  gap: "18px",
+  marginTop: "25px"
+};
+
+const summaryCard = {
+  background: "rgba(83,184,255,.08)",
+  border: "1px solid rgba(83,184,255,.15)",
+  padding: "20px",
+  borderRadius: "14px",
+  display: "flex",
+  justifyContent: "space-between"
+};
+
+const charts = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))",
+  gap: "20px",
+  marginTop: "30px"
+};
+
+const chartCard = {
+  background: "rgba(255,255,255,.05)",
+  borderRadius: "18px",
+  padding: "25px"
+};
+
+const chartLabel = {
+  display: "flex",
+  justifyContent: "space-between",
+  marginBottom: "8px"
+};
+
+const barBg = {
+  width: "100%",
+  height: "12px",
+  background: "rgba(255,255,255,.08)",
+  borderRadius: "999px"
+};
+
+const barFill = {
+  height: "100%",
+  background: "#38bdf8",
+  borderRadius: "999px"
 };
 
 const filters = {
   display: "flex",
   gap: "15px",
-  flexWrap: "wrap",
-  margin: "25px 0"
+  margin: "25px 0",
+  flexWrap: "wrap"
 };
 
 const input = {
@@ -403,69 +548,74 @@ const input = {
   minWidth: "260px"
 };
 
-const summaryGrid = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit,minmax(180px,1fr))",
-  gap: "15px"
-};
-
-const summaryCard = {
-  background: "rgba(83,184,255,.08)",
-  border: "1px solid rgba(83,184,255,.15)",
-  borderRadius: "14px",
-  padding: "18px",
-  display: "flex",
-  justifyContent: "space-between",
-  gap: "10px"
-};
-
 const table = {
   width: "100%",
-  borderCollapse: "collapse",
-  background: "rgba(15,23,42,.6)"
+  borderCollapse: "collapse"
 };
 
 const th = {
   padding: "14px",
   textAlign: "left",
-  borderBottom: "1px solid rgba(255,255,255,.12)",
-  color: "#93c5fd",
-  whiteSpace: "nowrap"
+  color: "#38bdf8",
+  borderBottom: "1px solid rgba(255,255,255,.08)"
 };
 
 const td = {
   padding: "14px",
-  borderBottom: "1px solid rgba(255,255,255,.08)",
-  whiteSpace: "nowrap"
+  borderBottom: "1px solid rgba(255,255,255,.06)"
 };
 
 const badge = (risk) => ({
-  background: risk === "High" ? "#991b1b" : risk === "Medium" ? "#92400e" : "#065f46",
-  color: "white",
+  background:
+    risk === "High"
+      ? "#dc2626"
+      : risk === "Medium"
+      ? "#f59e0b"
+      : "#16a34a",
   padding: "6px 12px",
   borderRadius: "999px",
-  fontSize: "12px",
-  fontWeight: "bold"
+  color: "white",
+  fontWeight: "bold",
+  fontSize: "12px"
 });
 
 const cards = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
+  gap: "20px",
+  marginTop: "25px"
+};
+
+const card = {
+  background: "rgba(255,255,255,.05)",
+  borderRadius: "18px",
+  padding: "22px",
+  border: "1px solid rgba(255,255,255,.08)"
+};
+
+const contactSection = {
+  marginTop: "50px",
+  padding: "40px",
+  borderRadius: "24px",
+  background:
+    "linear-gradient(135deg,rgba(15,23,42,.95),rgba(10,40,80,.95))"
+};
+
+const contactGrid = {
   display: "grid",
   gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
   gap: "18px",
   marginTop: "25px"
 };
 
-const card = {
-  padding: "20px",
+const contactCard = {
   background: "rgba(255,255,255,.05)",
-  border: "1px solid rgba(255,255,255,.08)",
   borderRadius: "18px",
-  lineHeight: "1.7"
+  padding: "20px"
 };
 
 const button = {
   display: "inline-block",
-  marginTop: "20px",
   background: "#ffb347",
   color: "#111",
   padding: "16px 28px",
@@ -474,49 +624,10 @@ const button = {
   textDecoration: "none"
 };
 
-const secondaryButton = {
-  display: "inline-block",
-  background: "transparent",
-  color: "white",
-  padding: "16px 28px",
-  borderRadius: "14px",
-  fontWeight: "bold",
-  textDecoration: "none",
-  border: "1px solid rgba(255,255,255,.25)"
-};
-
-const contactGrid = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))",
-  gap: "18px",
-  marginTop: "25px"
-};
-
-const contactCard = {
-  background: "rgba(255,255,255,.05)",
-  border: "1px solid rgba(255,255,255,.08)",
-  borderRadius: "18px",
-  padding: "22px"
-};
-
-const contactTitle = {
-  color: "#53b8ff",
-  marginBottom: "10px"
-};
-
-const contactText = {
-  fontSize: "18px",
-  fontWeight: "600",
-  color: "white"
-};
-
 const footer = {
-  marginTop: "30px",
-  padding: "30px 0",
   textAlign: "center",
-  color: "#8fa2b5",
-  fontSize: "14px",
-  borderTop: "1px solid rgba(255,255,255,.08)"
+  padding: "40px 0",
+  color: "#94a3b8"
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
