@@ -1,236 +1,196 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
 
-const licenceData = [
+const countries = [
   {
-    id: "ZM-CAN-001",
-    company: "Copperbelt Exploration Resources",
-    country: "Zambia",
-    province: "Copperbelt",
-    commodity: "Copper",
-    status: "Cancelled",
-    risk: "High",
-    score: "88/100",
+    name: "DRC",
+    risk: "HIGH",
+    color: "from-red-500/30 to-red-900/20",
+    border: "border-red-500",
+    text: "Conflict minerals, licence suspensions and sovereign intervention.",
   },
   {
-    id: "DRC-SUS-002",
-    company: "Mwenga Mining Zone",
-    country: "DRC",
-    province: "South Kivu",
-    commodity: "Gold",
-    status: "Suspended",
-    risk: "High",
-    score: "93/100",
+    name: "Burkina Faso",
+    risk: "HIGH",
+    color: "from-orange-500/30 to-red-900/20",
+    border: "border-orange-500",
+    text: "State mining fund and resource nationalism monitoring.",
   },
   {
-    id: "BF-SOV-003",
-    company: "Burkina Strategic Minerals",
-    country: "Burkina Faso",
-    province: "Ouagadougou",
-    commodity: "Gold",
-    status: "State Review",
-    risk: "High",
-    score: "91/100",
+    name: "Zambia",
+    risk: "MODERATE",
+    color: "from-yellow-500/20 to-yellow-900/10",
+    border: "border-yellow-400",
+    text: "Strategic minerals, Copperbelt intelligence and corridor expansion.",
   },
   {
-    id: "ANG-COR-004",
-    company: "Lobito Copper Logistics",
-    country: "Angola",
-    province: "Benguela",
-    commodity: "Copper",
-    status: "Active",
-    risk: "Moderate",
-    score: "84/100",
+    name: "Angola",
+    risk: "MODERATE",
+    color: "from-yellow-500/20 to-orange-900/10",
+    border: "border-orange-300",
+    text: "Lobito Corridor and rail logistics expansion.",
+  },
+  {
+    name: "Botswana",
+    risk: "LOW",
+    color: "from-green-500/20 to-green-900/10",
+    border: "border-green-400",
+    text: "Stable mining governance and investor environment.",
+  },
+  {
+    name: "Tanzania",
+    risk: "MODERATE",
+    color: "from-yellow-500/20 to-yellow-900/10",
+    border: "border-yellow-300",
+    text: "Strategic mineral policy monitoring and corridor intelligence.",
   },
 ];
 
-function RiskBadge({ risk }) {
-  const styles = {
-    High: "bg-rose-500/20 text-rose-300 border border-rose-500/30",
-    Moderate:
-      "bg-yellow-500/20 text-yellow-300 border border-yellow-500/30",
-    Low: "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30",
-  };
+const alerts = [
+  "DRC suspensions continue in South Kivu and Mwenga",
+  "Burkina Faso sovereign mining fund expands state participation",
+  "Lobito Corridor rail investment negotiations progressing",
+  "Strategic lithium assets under increased investor watch",
+];
 
+export default function TerraNovaAfrica() {
   return (
-    <span
-      className={`px-3 py-1 rounded-full text-xs font-bold ${styles[risk]}`}
-    >
-      {risk}
-    </span>
-  );
-}
-
-function App() {
-  return (
-    <main className="min-h-screen bg-[#050816] text-white overflow-x-hidden">
-
+    <main className="min-h-screen bg-[#050816] text-white overflow-hidden">
       {/* BACKGROUND */}
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_top,rgba(0,255,255,0.06),transparent_35%)] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(255,0,100,0.08),transparent_35%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_top,rgba(255,0,100,0.08),transparent_35%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(0,255,255,0.08),transparent_35%)] pointer-events-none" />
 
       {/* NAVBAR */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-white/10 bg-[#050816]/90">
+      <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-white/5 bg-[#050816]/80">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex items-center justify-between">
-
           <div>
             <h1 className="text-5xl font-black text-rose-500 tracking-tight">
               TerraNova
             </h1>
 
-            <p className="text-[11px] uppercase tracking-[0.45em] text-slate-400 mt-1">
+            <p className="text-[11px] tracking-[0.45em] text-slate-500 uppercase mt-1">
               Mining Intelligence & Asset Management
             </p>
           </div>
 
           <nav className="hidden md:flex gap-8 text-sm font-semibold text-slate-300">
-            <a href="#engine" className="hover:text-cyan-400">
+            <a href="#engine" className="hover:text-cyan-400 transition">
               Intelligence Engine
             </a>
 
-            <a href="#heatmap" className="hover:text-cyan-400">
+            <a href="#heatmap" className="hover:text-cyan-400 transition">
               Heatmap
             </a>
 
-            <a href="#analytics" className="hover:text-cyan-400">
+            <a href="#analytics" className="hover:text-cyan-400 transition">
               Analytics
             </a>
 
-            <a href="#licences" className="hover:text-cyan-400">
+            <a href="#licences" className="hover:text-cyan-400 transition">
               Licences
             </a>
 
-            <a href="#alerts" className="hover:text-cyan-400">
+            <a href="#alerts" className="hover:text-cyan-400 transition">
               Alerts
             </a>
 
-            <a href="#contact" className="hover:text-cyan-400">
+            <a href="#contact" className="hover:text-cyan-400 transition">
               Contact
             </a>
           </nav>
         </div>
       </header>
 
+      {/* BREAKING ALERT */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 pt-8">
+        <div className="bg-gradient-to-r from-rose-500/30 to-transparent border border-rose-500/20 rounded-2xl px-6 py-4 overflow-hidden">
+          <div className="animate-pulse text-sm lg:text-base font-semibold text-rose-200">
+            BREAKING INTELLIGENCE: DRC suspensions, Burkina Faso sovereign mining fund and Lobito Corridor expansion remain active watch items.
+          </div>
+        </div>
+      </section>
+
       {/* HERO */}
       <section
         id="engine"
-        className="max-w-7xl mx-auto px-6 lg:px-12 py-16"
+        className="max-w-7xl mx-auto px-6 lg:px-12 py-24"
       >
+        <div className="max-w-4xl">
+          <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-6">
+            TMI.AFRICA COMMAND CENTER
+          </p>
 
-        {/* LIVE ALERT */}
-        <div className="mb-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 px-6 py-4 animate-pulse">
+          <h2 className="text-6xl lg:text-8xl font-black leading-none mb-10">
+            Africa Mining Intelligence Infrastructure
+          </h2>
 
-          <div className="flex items-center gap-4 flex-wrap">
+          <p className="text-slate-300 text-lg lg:text-2xl leading-relaxed max-w-4xl">
+            TerraNova Mining Intelligence operates an African sovereign mining intelligence platform monitoring distressed assets, strategic minerals, corridor infrastructure, sovereign risk, resource nationalism and investor exposure across Africa.
+          </p>
+        </div>
+      </section>
 
-            <span className="bg-rose-500 text-white text-xs font-black px-4 py-2 rounded-full">
-              BREAKING INTELLIGENCE
-            </span>
+      {/* INTERACTIVE AFRICA HEATMAP */}
+      <section
+        id="heatmap"
+        className="max-w-7xl mx-auto px-6 lg:px-12 pb-24"
+      >
+        <div className="mb-12">
+          <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+            AFRICA RISK HEATMAP
+          </p>
 
-            <p className="text-rose-100 text-sm">
-              DRC suspensions, Burkina Faso sovereign mining fund and Lobito
-              Corridor expansion remain active watch items.
-            </p>
-
-          </div>
+          <h3 className="text-4xl font-black">
+            Sovereign Mining Intelligence Zones
+          </h3>
         </div>
 
-        <p className="text-cyan-400 uppercase tracking-[0.35em] text-sm font-bold mb-6">
-          TMI.AFRICA COMMAND CENTER
-        </p>
-
-        <h2 className="text-6xl md:text-7xl font-black leading-none max-w-6xl mb-8">
-          Africa Mining Intelligence Infrastructure
-        </h2>
-
-        <p className="text-slate-300 text-lg leading-relaxed max-w-5xl mb-16">
-          TerraNova Mining Intelligence operates an African sovereign mining
-          intelligence platform monitoring distressed assets, strategic
-          minerals, corridor infrastructure, sovereign risk, investor exposure
-          and resource nationalism across Africa.
-        </p>
-
-        {/* COMMAND CARDS */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-          {[
-            {
-              title: "Cancelled Licence Intelligence",
-              desc:
-                "Monitor distressed and revoked mining rights across Zambia and Africa.",
-            },
-            {
-              title: "Strategic Minerals Intelligence",
-              desc:
-                "Track copper, cobalt, lithium, uranium and critical mineral assets.",
-            },
-            {
-              title: "Sovereign Risk Analytics",
-              desc:
-                "Monitor mining policy shifts, sovereign funds and state mining intervention.",
-            },
-            {
-              title: "Investor Due Diligence",
-              desc:
-                "Screen mining investors, operators, suppliers and beneficial ownership risk.",
-            },
-          ].map((card, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {countries.map((country, index) => (
             <div
               key={index}
-              className="rounded-3xl bg-white/5 border border-white/10 p-8 backdrop-blur-xl"
+              className={`bg-gradient-to-br ${country.color} border ${country.border} rounded-3xl p-8 backdrop-blur-xl hover:scale-[1.03] transition duration-300 shadow-2xl`}
             >
-              <h3 className="text-2xl font-black mb-5">{card.title}</h3>
+              <div className="flex items-center justify-between mb-6">
+                <h4 className="text-3xl font-black">{country.name}</h4>
 
-              <p className="text-slate-300 leading-relaxed">
-                {card.desc}
+                <span className="text-xs font-bold px-4 py-2 rounded-full bg-black/30 border border-white/10">
+                  {country.risk}
+                </span>
+              </div>
+
+              <p className="text-slate-200 text-lg leading-relaxed">
+                {country.text}
               </p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* SOVEREIGN HEATMAP */}
+      {/* LIVE ALERTS */}
       <section
-        id="heatmap"
-        className="max-w-7xl mx-auto px-6 lg:px-12 py-20"
+        id="alerts"
+        className="max-w-7xl mx-auto px-6 lg:px-12 pb-24"
       >
-
-        <div className="mb-12">
-          <p className="text-cyan-400 uppercase tracking-[0.35em] text-sm mb-4">
-            AFRICA SOVEREIGN RISK MONITOR
+        <div className="mb-10">
+          <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+            LIVE INTELLIGENCE FEED
           </p>
 
-          <h2 className="text-5xl font-black">
-            Africa Mining Risk Heatmap
-          </h2>
+          <h3 className="text-4xl font-black">
+            Strategic Mining Alerts
+          </h3>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          {[
-            ["DRC", "High", "Conflict minerals and licence suspensions"],
-            ["Burkina Faso", "High", "Sovereign mining intervention"],
-            ["Zambia", "Moderate", "Strategic minerals expansion"],
-            ["Angola", "Moderate", "Lobito Corridor logistics growth"],
-            ["Botswana", "Low", "Stable mining governance"],
-            ["Tanzania", "Moderate", "Strategic minerals monitoring"],
-          ].map((item, index) => (
+        <div className="space-y-5">
+          {alerts.map((alert, index) => (
             <div
               key={index}
-              className="rounded-3xl bg-white/5 border border-white/10 p-8"
+              className="bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5 flex items-center gap-4 hover:border-cyan-400/30 transition"
             >
-              <div className="flex items-center justify-between mb-6">
+              <div className="w-3 h-3 rounded-full bg-rose-500 animate-pulse" />
 
-                <h3 className="text-3xl font-black">
-                  {item[0]}
-                </h3>
-
-                <RiskBadge risk={item[1]} />
-
-              </div>
-
-              <p className="text-slate-300 leading-relaxed">
-                {item[2]}
+              <p className="text-slate-200 text-lg">
+                {alert}
               </p>
             </div>
           ))}
@@ -240,220 +200,75 @@ function App() {
       {/* ANALYTICS */}
       <section
         id="analytics"
-        className="max-w-7xl mx-auto px-6 lg:px-12 py-20"
+        className="max-w-7xl mx-auto px-6 lg:px-12 pb-24"
       >
+        <div className="mb-10">
+          <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+            EXECUTIVE ANALYTICS
+          </p>
 
-        <h2 className="text-5xl font-black mb-12">
-          Mining Intelligence Analytics Dashboard
-        </h2>
-
-        <div className="rounded-3xl bg-white/5 border border-white/10 p-10">
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
-
-            {[
-              ["Records", "15"],
-              ["High Risk", "6"],
-              ["Strategic Minerals", "5"],
-              ["Avg Opportunity", "90/100"],
-            ].map((metric, index) => (
-              <div key={index}>
-                <p className="text-slate-400 uppercase text-sm mb-2">
-                  {metric[0]}
-                </p>
-
-                <h3 className="text-5xl font-black">
-                  {metric[1]}
-                </h3>
-              </div>
-            ))}
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-16">
-
-            {/* COMMODITY DISTRIBUTION */}
-            <div>
-              <h3 className="text-2xl font-black mb-8">
-                Commodity Intelligence Distribution
-              </h3>
-
-              {[
-                ["Copper", "80%"],
-                ["Gold", "72%"],
-                ["Cobalt", "55%"],
-                ["Lithium", "48%"],
-                ["Uranium", "35%"],
-              ].map((item, index) => (
-                <div key={index} className="mb-6">
-
-                  <div className="flex justify-between mb-2">
-                    <span>{item[0]}</span>
-                    <span>{item[1]}</span>
-                  </div>
-
-                  <div className="w-full h-3 rounded-full bg-slate-800 overflow-hidden">
-                    <div
-                      className="h-full rounded-full bg-cyan-400"
-                      style={{ width: item[1] }}
-                    />
-                  </div>
-
-                </div>
-              ))}
-            </div>
-
-            {/* RISK DISTRIBUTION */}
-            <div>
-
-              <h3 className="text-2xl font-black mb-8">
-                Sovereign Risk Distribution
-              </h3>
-
-              {[
-                ["High Risk", "40%", "bg-rose-500"],
-                ["Moderate Risk", "45%", "bg-yellow-400"],
-                ["Low Risk", "15%", "bg-emerald-400"],
-              ].map((item, index) => (
-                <div key={index} className="mb-6">
-
-                  <div className="flex justify-between mb-2">
-                    <span>{item[0]}</span>
-                    <span>{item[1]}</span>
-                  </div>
-
-                  <div className="w-full h-3 rounded-full bg-slate-800 overflow-hidden">
-                    <div
-                      className={`h-full rounded-full ${item[2]}`}
-                      style={{ width: item[1] }}
-                    />
-                  </div>
-
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* LICENCE TABLE */}
-      <section
-        id="licences"
-        className="max-w-7xl mx-auto px-6 lg:px-12 py-20"
-      >
-
-        <div className="mb-12">
-          <h2 className="text-5xl font-black">
-            Strategic Mining Asset Registry
-          </h2>
+          <h3 className="text-4xl font-black">
+            Mining Intelligence Metrics
+          </h3>
         </div>
 
-        <div className="overflow-x-auto rounded-3xl border border-white/10 bg-white/5">
+        <div className="grid md:grid-cols-4 gap-6">
+          {[
+            ["Licence Records", "15+"],
+            ["High Risk Assets", "6"],
+            ["Strategic Minerals", "5"],
+            ["Avg Opportunity", "90/100"],
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="bg-white/[0.03] border border-white/10 rounded-3xl p-8"
+            >
+              <p className="text-slate-400 text-sm uppercase tracking-wider mb-4">
+                {item[0]}
+              </p>
 
-          <table className="w-full min-w-[1200px]">
-
-            <thead className="border-b border-white/10">
-              <tr className="text-cyan-300">
-
-                {[
-                  "Licence ID",
-                  "Company",
-                  "Country",
-                  "Province",
-                  "Commodity",
-                  "Status",
-                  "Risk",
-                  "Opportunity",
-                ].map((header, index) => (
-                  <th
-                    key={index}
-                    className="text-left px-6 py-5 font-semibold"
-                  >
-                    {header}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-
-            <tbody>
-
-              {licenceData.map((licence, index) => (
-                <tr
-                  key={index}
-                  className="border-b border-white/5 hover:bg-white/5"
-                >
-
-                  <td className="px-6 py-5">{licence.id}</td>
-                  <td className="px-6 py-5">{licence.company}</td>
-                  <td className="px-6 py-5">{licence.country}</td>
-                  <td className="px-6 py-5">{licence.province}</td>
-                  <td className="px-6 py-5">{licence.commodity}</td>
-                  <td className="px-6 py-5">{licence.status}</td>
-
-                  <td className="px-6 py-5">
-                    <RiskBadge risk={licence.risk} />
-                  </td>
-
-                  <td className="px-6 py-5 font-bold">
-                    {licence.score}
-                  </td>
-
-                </tr>
-              ))}
-            </tbody>
-          </table>
+              <h4 className="text-5xl font-black text-cyan-400">
+                {item[1]}
+              </h4>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* CONTACT */}
       <section
         id="contact"
-        className="max-w-7xl mx-auto px-6 lg:px-12 py-20"
+        className="max-w-7xl mx-auto px-6 lg:px-12 pb-24"
       >
-
-        <div className="rounded-3xl border border-cyan-500/20 bg-cyan-950/20 p-10">
-
-          <h2 className="text-5xl font-black mb-6">
-            Request Access
-          </h2>
-
-          <p className="text-slate-300 text-lg max-w-4xl mb-10">
-            Request pilot access, intelligence briefings,
-            investor due diligence reports and corridor intelligence.
+        <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/10 border border-cyan-500/20 rounded-[32px] p-10 lg:p-16">
+          <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+            REQUEST ACCESS
           </p>
 
-          <div className="space-y-4 mb-10">
+          <h3 className="text-5xl font-black mb-8">
+            TerraNova Intelligence Access
+          </h3>
 
-            <p className="text-cyan-300 text-xl font-bold">
-              fred.mulenga@zerb.co.zm
-            </p>
+          <p className="text-slate-200 text-xl leading-relaxed max-w-4xl mb-10">
+            Request pilot access, sovereign mining intelligence reports, investor due diligence, corridor intelligence or strategic mineral analytics.
+          </p>
 
-            <p className="text-white text-lg">
-              (+260) 760 612 073
-            </p>
-
-            <p className="text-white text-lg">
-              0961 863 010
-            </p>
-
+          <div className="space-y-4 text-lg text-slate-200 mb-10">
+            <p>fred.mulenga@zerb.co.zm</p>
+            <p>(+260) 760 612 073</p>
+            <p>0961 863 010</p>
           </div>
 
-          <button className="px-8 py-4 rounded-2xl bg-yellow-300 text-black font-black hover:scale-105 transition">
+          <button className="bg-amber-300 hover:bg-amber-200 text-black font-bold px-8 py-4 rounded-2xl transition">
             Request Intelligence Brief
           </button>
-
         </div>
-
-        <footer className="text-center text-slate-500 mt-12">
-          © 2026 TerraNova Mining Intelligence. All rights reserved.
-        </footer>
-
       </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-white/5 py-10 text-center text-slate-500 text-sm">
+        © 2026 TerraNova Mining Intelligence. All rights reserved.
+      </footer>
     </main>
   );
 }
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
