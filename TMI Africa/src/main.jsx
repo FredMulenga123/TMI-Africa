@@ -3,77 +3,67 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 
 export default function TerraNovaAfrica() {
+  const countries = [
+    {
+      name: "DRC",
+      level: "HIGH",
+      minerals: "Gold, Coltan, Copper",
+      detail: "Conflict minerals and sovereign mining intervention.",
+      color:
+        "border-rose-500/40 bg-rose-500/10 text-rose-300 shadow-rose-500/20",
+    },
+
+    {
+      name: "Zambia",
+      level: "MODERATE",
+      minerals: "Copper, Uranium, Cobalt",
+      detail: "Strategic minerals and Lobito Corridor expansion.",
+      color:
+        "border-yellow-500/40 bg-yellow-500/10 text-yellow-200 shadow-yellow-500/20",
+    },
+
+    {
+      name: "Angola",
+      level: "MODERATE",
+      minerals: "Oil, Copper Corridor",
+      detail: "Lobito infrastructure investment activity.",
+      color:
+        "border-orange-500/40 bg-orange-500/10 text-orange-300 shadow-orange-500/20",
+    },
+
+    {
+      name: "Botswana",
+      level: "LOW",
+      minerals: "Copper, Diamonds",
+      detail: "Stable mining governance environment.",
+      color:
+        "border-emerald-500/40 bg-emerald-500/10 text-emerald-300 shadow-emerald-500/20",
+    },
+
+    {
+      name: "Tanzania",
+      level: "MODERATE",
+      minerals: "Gold, Nickel",
+      detail: "Resource nationalism monitoring.",
+      color:
+        "border-cyan-500/40 bg-cyan-500/10 text-cyan-300 shadow-cyan-500/20",
+    },
+
+    {
+      name: "Namibia",
+      level: "LOW",
+      minerals: "Uranium, Rare Earths",
+      detail: "Strategic uranium expansion.",
+      color:
+        "border-sky-500/40 bg-sky-500/10 text-sky-300 shadow-sky-500/20",
+    },
+  ];
+
   const alerts = [
     "DRC suspends additional artisanal gold operations in South Kivu.",
     "Burkina Faso sovereign mining fund expanding strategic control.",
     "Lobito Corridor copper logistics expansion remains active.",
     "Zambia uranium exploration activity increasing.",
-  ];
-
-  const sovereignRisk = [
-    {
-      country: "DRC",
-      level: "HIGH",
-      detail: "Conflict minerals and sovereign mining intervention.",
-      color: "border-rose-500/40 bg-rose-500/10 text-rose-300",
-    },
-    {
-      country: "Burkina Faso",
-      level: "HIGH",
-      detail: "State mining fund and resource nationalism.",
-      color: "border-orange-500/40 bg-orange-500/10 text-orange-300",
-    },
-    {
-      country: "Zambia",
-      level: "MODERATE",
-      detail: "Strategic minerals expansion and corridor investment.",
-      color: "border-yellow-500/40 bg-yellow-500/10 text-yellow-200",
-    },
-    {
-      country: "Botswana",
-      level: "LOW",
-      detail: "Stable mining governance environment.",
-      color: "border-emerald-500/40 bg-emerald-500/10 text-emerald-300",
-    },
-  ];
-
-  const licences = [
-    {
-      id: "ZM-CAN-001",
-      company: "Copperbelt Exploration Resources",
-      country: "Zambia",
-      mineral: "Copper",
-      status: "Cancelled",
-      risk: "High",
-      score: "88/100",
-    },
-    {
-      id: "DRC-SUS-002",
-      company: "Mwenga Mining Zone",
-      country: "DRC",
-      mineral: "Gold",
-      status: "Suspended",
-      risk: "High",
-      score: "93/100",
-    },
-    {
-      id: "ZM-URA-006",
-      company: "Zambezi Uranium Holdings",
-      country: "Zambia",
-      mineral: "Uranium",
-      status: "Pending",
-      risk: "Medium",
-      score: "86/100",
-    },
-    {
-      id: "BOT-COP-004",
-      company: "Kalahari Copper JV",
-      country: "Botswana",
-      mineral: "Copper",
-      status: "Active",
-      risk: "Low",
-      score: "90/100",
-    },
   ];
 
   const commodityData = [
@@ -86,8 +76,9 @@ export default function TerraNovaAfrica() {
 
   return (
     <main className="min-h-screen bg-[#050816] text-white overflow-hidden">
-      {/* BACKGROUND */}
+      {/* BACKGROUND FX */}
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_top,rgba(0,255,255,0.08),transparent_40%)] pointer-events-none" />
+
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(255,0,100,0.08),transparent_35%)] pointer-events-none" />
 
       {/* NAVBAR */}
@@ -114,10 +105,6 @@ export default function TerraNovaAfrica() {
 
             <a href="#analytics" className="hover:text-cyan-400 transition">
               Analytics
-            </a>
-
-            <a href="#licences" className="hover:text-cyan-400 transition">
-              Licences
             </a>
 
             <a href="#alerts" className="hover:text-cyan-400 transition">
@@ -149,18 +136,17 @@ export default function TerraNovaAfrica() {
         </p>
 
         <h2 className="text-6xl lg:text-8xl font-black leading-none max-w-5xl">
-          Africa Mining Intelligence Infrastructure
+          Africa’s Strategic Minerals & Mining Governance Intelligence
+          Infrastructure
         </h2>
 
         <p className="mt-10 text-slate-300 text-xl leading-relaxed max-w-4xl">
-          TerraNova Mining Intelligence operates Africa’s Strategic Minerals &
-          Mining Governance Intelligence Infrastructure monitoring distressed
-          mining assets, strategic minerals, sovereign risk, corridor
-          infrastructure, resource nationalism and investor exposure across
-          Africa.
+          TerraNova Mining Intelligence monitors distressed mining assets,
+          strategic minerals, sovereign risk, investor exposure, corridor
+          infrastructure and resource nationalism across Africa.
         </p>
 
-        {/* KPI CARDS */}
+        {/* KPI */}
         <div className="grid md:grid-cols-4 gap-6 mt-16">
           <div className="rounded-3xl border border-cyan-500/20 bg-cyan-500/10 p-8">
             <p className="text-slate-400 text-sm uppercase tracking-widest">
@@ -198,10 +184,72 @@ export default function TerraNovaAfrica() {
         </div>
       </section>
 
+      {/* AFRICA HEATMAP */}
+      <section
+        id="heatmap"
+        className="max-w-7xl mx-auto px-6 lg:px-12 pb-24"
+      >
+        <div className="flex items-center justify-between mb-12">
+          <div>
+            <p className="text-cyan-400 uppercase tracking-[0.35em] text-sm font-bold">
+              AFRICA INTELLIGENCE HEATMAP
+            </p>
+
+            <h3 className="text-5xl font-black mt-4">
+              Sovereign Mining Risk Monitoring
+            </h3>
+          </div>
+
+          <div className="hidden lg:flex items-center gap-3 text-sm">
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-rose-400" />
+              HIGH
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-yellow-400" />
+              MODERATE
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-emerald-400" />
+              LOW
+            </div>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {countries.map((country, index) => (
+            <div
+              key={index}
+              className={`rounded-3xl border p-8 backdrop-blur-xl shadow-2xl transition hover:scale-[1.02] ${country.color}`}
+            >
+              <div className="flex items-center justify-between">
+                <h4 className="text-4xl font-black">{country.name}</h4>
+
+                <div className="w-4 h-4 rounded-full bg-current animate-pulse" />
+              </div>
+
+              <div className="mt-5 inline-flex px-4 py-2 rounded-full text-sm font-bold border border-white/10 bg-black/30">
+                {country.level}
+              </div>
+
+              <p className="mt-6 text-lg font-semibold">
+                {country.minerals}
+              </p>
+
+              <p className="mt-4 leading-relaxed text-slate-200">
+                {country.detail}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* LIVE ALERTS */}
       <section
         id="alerts"
-        className="max-w-7xl mx-auto px-6 lg:px-12 pb-20"
+        className="max-w-7xl mx-auto px-6 lg:px-12 pb-24"
       >
         <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-10">
           <div className="flex items-center justify-between mb-8">
@@ -231,43 +279,10 @@ export default function TerraNovaAfrica() {
         </div>
       </section>
 
-      {/* SOVEREIGN RISK */}
-      <section
-        id="heatmap"
-        className="max-w-7xl mx-auto px-6 lg:px-12 pb-20"
-      >
-        <p className="text-cyan-400 uppercase tracking-[0.35em] text-sm font-bold mb-4">
-          AFRICA SOVEREIGN RISK MATRIX
-        </p>
-
-        <h3 className="text-5xl font-black mb-12">
-          Strategic Mining Governance Risk
-        </h3>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {sovereignRisk.map((item, index) => (
-            <div
-              key={index}
-              className={`rounded-3xl border p-8 ${item.color}`}
-            >
-              <h4 className="text-3xl font-black">{item.country}</h4>
-
-              <div className="mt-5 inline-flex px-4 py-2 rounded-full text-sm font-bold border border-white/10 bg-black/30">
-                {item.level}
-              </div>
-
-              <p className="mt-6 leading-relaxed text-slate-200">
-                {item.detail}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* ANALYTICS */}
       <section
         id="analytics"
-        className="max-w-7xl mx-auto px-6 lg:px-12 pb-20"
+        className="max-w-7xl mx-auto px-6 lg:px-12 pb-24"
       >
         <div className="rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-xl">
           <div className="flex items-center justify-between mb-12">
@@ -313,75 +328,6 @@ export default function TerraNovaAfrica() {
         </div>
       </section>
 
-      {/* LICENCE TABLE */}
-      <section
-        id="licences"
-        className="max-w-7xl mx-auto px-6 lg:px-12 pb-24"
-      >
-        <p className="text-cyan-400 uppercase tracking-[0.35em] text-sm font-bold mb-4">
-          DISTRESSED ASSETS REGISTRY
-        </p>
-
-        <h3 className="text-5xl font-black mb-10">
-          Strategic Minerals Intelligence Registry
-        </h3>
-
-        <div className="overflow-x-auto rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
-          <table className="w-full min-w-[1000px]">
-            <thead className="border-b border-white/10 bg-black/30">
-              <tr className="text-left text-slate-400 text-sm uppercase">
-                <th className="px-6 py-5">Licence ID</th>
-                <th className="px-6 py-5">Company</th>
-                <th className="px-6 py-5">Country</th>
-                <th className="px-6 py-5">Mineral</th>
-                <th className="px-6 py-5">Status</th>
-                <th className="px-6 py-5">Risk</th>
-                <th className="px-6 py-5">Score</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {licences.map((item, index) => (
-                <tr
-                  key={index}
-                  className="border-b border-white/5 hover:bg-white/5 transition"
-                >
-                  <td className="px-6 py-5 font-semibold text-cyan-400">
-                    {item.id}
-                  </td>
-
-                  <td className="px-6 py-5">{item.company}</td>
-
-                  <td className="px-6 py-5">{item.country}</td>
-
-                  <td className="px-6 py-5">{item.mineral}</td>
-
-                  <td className="px-6 py-5">{item.status}</td>
-
-                  <td className="px-6 py-5">
-                    <span
-                      className={`px-4 py-2 rounded-full text-xs font-bold ${
-                        item.risk === "High"
-                          ? "bg-rose-500/20 text-rose-300"
-                          : item.risk === "Medium"
-                          ? "bg-yellow-500/20 text-yellow-200"
-                          : "bg-emerald-500/20 text-emerald-300"
-                      }`}
-                    >
-                      {item.risk}
-                    </span>
-                  </td>
-
-                  <td className="px-6 py-5 font-bold text-emerald-400">
-                    {item.score}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
       {/* CONTACT */}
       <section
         id="contact"
@@ -397,9 +343,9 @@ export default function TerraNovaAfrica() {
           </h3>
 
           <p className="mt-8 text-slate-300 text-lg max-w-3xl">
-            Request pilot access, sovereign mining intelligence briefings,
-            investor due diligence reports, strategic minerals analytics and
-            mining governance intelligence.
+            Request sovereign mining intelligence briefings, investor due
+            diligence reports, strategic minerals analytics and mining
+            governance intelligence.
           </p>
 
           <div className="mt-10 space-y-4 text-xl">
@@ -409,7 +355,7 @@ export default function TerraNovaAfrica() {
 
             <p>(+260) 760 612 073</p>
 
-            <p>0961 863 010</p>
+            <p>(260) 961 863 010</p>
           </div>
 
           <button className="mt-10 px-8 py-4 rounded-2xl bg-white text-black font-bold hover:scale-105 transition">
