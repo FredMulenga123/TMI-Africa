@@ -41,37 +41,73 @@ function TerraNovaAfrica() {
     <main className="min-h-screen bg-[#050816] text-white">
       {/* HERO */}
       <section className="max-w-7xl mx-auto px-6 py-16">
-        <h1 className="text-6xl font-black text-rose-500">
-          TerraNova
-        </h1>
 
-        <p className="text-slate-400 tracking-[0.4em] uppercase text-sm mt-2">
-          Mining Intelligence & Asset Management
-        </p>
+  {/* TOP NAV */}
+  <div className="flex items-start justify-between flex-wrap gap-6">
 
-        <div className="mt-10 border border-rose-500/30 bg-rose-500/10 rounded-2xl p-4 text-rose-200">
-          BREAKING INTELLIGENCE:
-          <span className="ml-2 text-white">
-            DRC suspensions and Lobito Corridor expansion remain active.
-          </span>
-        </div>
+    <div>
+      <h1 className="text-6xl font-black text-rose-500">
+        TerraNova
+      </h1>
 
-        <div className="mt-16">
-          <p className="text-cyan-400 uppercase tracking-[0.4em] text-sm">
-            Africa’s Strategic Minerals & Mining Governance Intelligence Infrastructure
-          </p>
+      <p className="text-slate-400 tracking-[0.4em] uppercase text-sm mt-2">
+        Mining Intelligence & Asset Management
+      </p>
+    </div>
 
-          <h2 className="text-7xl font-black mt-6 leading-none">
-            Mining Intelligence Database Engine
-          </h2>
+    {/* RIGHT MENU */}
+    <nav className="flex gap-8 text-sm font-semibold text-slate-300 mt-4">
+      <a href="#dashboard" className="hover:text-cyan-400 transition">
+        Dashboard
+      </a>
 
-          <p className="text-slate-300 mt-8 max-w-4xl text-lg">
-            TerraNova Mining Intelligence monitors sovereign mining risk,
-            strategic minerals, distressed assets and infrastructure corridors
-            across Africa.
-          </p>
-        </div>
-      </section>
+      <a href="#database" className="hover:text-cyan-400 transition">
+        Intelligence Database
+      </a>
+
+      <a href="#analytics" className="hover:text-cyan-400 transition">
+        Analytics
+      </a>
+
+      <a href="#alerts" className="hover:text-cyan-400 transition">
+        Alerts
+      </a>
+
+      <a href="#contact" className="hover:text-cyan-400 transition">
+        Contact
+      </a>
+    </nav>
+
+  </div>
+
+  {/* ALERT BAR */}
+  <div className="mt-10 border border-rose-500/30 bg-rose-500/10 rounded-2xl p-4 text-rose-200">
+    BREAKING INTELLIGENCE:
+    <span className="ml-2 text-white">
+      DRC suspensions and Lobito Corridor expansion remain active.
+    </span>
+  </div>
+
+  {/* HERO TEXT */}
+  <div className="mt-20">
+
+    <p className="text-cyan-400 uppercase tracking-[0.4em] text-sm">
+      Africa’s Strategic Minerals & Mining Governance Intelligence Infrastructure
+    </p>
+
+    <h2 className="text-7xl font-black mt-6 leading-none max-w-6xl">
+      Mining Intelligence Database Engine
+    </h2>
+
+    <p className="text-slate-300 mt-8 max-w-4xl text-lg leading-relaxed">
+      TerraNova Mining Intelligence monitors sovereign mining risk,
+      strategic minerals, distressed assets and infrastructure corridors
+      across Africa.
+    </p>
+
+  </div>
+
+</section>
 
       {/* STATS */}
       <section className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-6">
