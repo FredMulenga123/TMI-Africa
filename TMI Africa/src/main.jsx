@@ -1,2 +1,10 @@
-document.getElementById("root").innerHTML =
-  "<h1 style='color:red;font-size:60px'>TERRA NOVA TEST</h1>";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
