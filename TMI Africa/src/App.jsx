@@ -50,7 +50,7 @@ export default function App() {
       </section>
             {/* PHASE 14 - INTELLIGENCE REQUEST PORTAL */}
 
-      <section className="max-w-7xl mx-auto px-6 py-20">
+      <section className="max-w-7xl mx-auto px-6 py-28">
         <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
           CLIENT INTELLIGENCE DESK
         </p>
