@@ -1,18 +1,2 @@
-import React from "react";
-
-export default function TerraNovaAfrica() {
-  return (
-    <div style={{
-      minHeight: "100vh",
-      background: "black",
-      color: "cyan",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      fontSize: "48px",
-      fontWeight: "bold"
-    }}>
-      TerraNova Africa Working
-    </div>
-  );
-}
+document.getElementById("root").innerHTML =
+  "<h1 style='color:red;font-size:60px'>TERRA NOVA TEST</h1>";
