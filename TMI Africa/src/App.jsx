@@ -255,6 +255,92 @@ export default function App() {
 
         </div>
       </section>
+      {/* PHASE 15 - LICENCES DATABASE */}
+
+<section className="max-w-7xl mx-auto px-6 py-24">
+  <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+    LICENCES & CONCESSIONS DATABASE
+  </p>
+
+  <h2 className="text-5xl font-black mb-6">
+    Strategic Mining Assets
+  </h2>
+
+  <p className="text-slate-400 max-w-4xl mb-12">
+    Monitor mining licences, concession ownership, strategic minerals exposure,
+    sovereign risk and asset status across Africa.
+  </p>
+
+  <div className="grid md:grid-cols-3 gap-6">
+
+    <div className="bg-slate-900 border border-white/10 rounded-3xl p-6">
+      <h3 className="text-xl font-bold text-amber-300">
+        ZM-CU-2026-014
+      </h3>
+
+      <p className="mt-4 text-slate-300">
+        Country: Zambia
+      </p>
+
+      <p className="text-slate-300">
+        Commodity: Copper
+      </p>
+
+      <p className="text-slate-300">
+        Status: Active
+      </p>
+
+      <p className="text-green-400 font-bold mt-4">
+        Risk Score: Low
+      </p>
+    </div>
+
+    <div className="bg-slate-900 border border-white/10 rounded-3xl p-6">
+      <h3 className="text-xl font-bold text-yellow-300">
+        DRC-AU-2026-102
+      </h3>
+
+      <p className="mt-4 text-slate-300">
+        Country: DRC
+      </p>
+
+      <p className="text-slate-300">
+        Commodity: Gold
+      </p>
+
+      <p className="text-slate-300">
+        Status: Under Review
+      </p>
+
+      <p className="text-yellow-400 font-bold mt-4">
+        Risk Score: Moderate
+      </p>
+    </div>
+
+    <div className="bg-slate-900 border border-white/10 rounded-3xl p-6">
+      <h3 className="text-xl font-bold text-rose-300">
+        BF-LI-2026-008
+      </h3>
+
+      <p className="mt-4 text-slate-300">
+        Country: Burkina Faso
+      </p>
+
+      <p className="text-slate-300">
+        Commodity: Lithium
+      </p>
+
+      <p className="text-slate-300">
+        Status: Suspended
+      </p>
+
+      <p className="text-rose-400 font-bold mt-4">
+        Risk Score: High
+      </p>
+    </div>
+
+  </div>
+</section>
     </main>
   );
 }
