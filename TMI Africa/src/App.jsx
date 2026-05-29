@@ -48,6 +48,72 @@ export default function App() {
           TerraNova Mining Intelligence operates an African sovereign mining intelligence platform monitoring distressed assets, strategic minerals, corridor infrastructure, sovereign risk and investor exposure across Africa.
         </p>
       </section>
+            {/* PHASE 14 - INTELLIGENCE REQUEST PORTAL */}
+
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+          CLIENT INTELLIGENCE DESK
+        </p>
+
+        <h2 className="text-5xl font-black mb-6">
+          Request Intelligence
+        </h2>
+
+        <p className="text-slate-400 max-w-4xl mb-12">
+          Submit requests for sovereign risk intelligence, mining due diligence,
+          strategic minerals analysis, beneficial ownership investigations,
+          infrastructure corridor intelligence and ESG risk assessments.
+        </p>
+
+        <div className="bg-slate-900 border border-white/10 rounded-3xl p-8">
+          <div className="grid md:grid-cols-2 gap-6">
+
+            <input
+              type="text"
+              placeholder="Organisation Name"
+              className="bg-[#050816] border border-white/10 rounded-xl p-4 text-white"
+            />
+
+            <input
+              type="email"
+              placeholder="Email Address"
+              className="bg-[#050816] border border-white/10 rounded-xl p-4 text-white"
+            />
+
+            <input
+              type="text"
+              placeholder="Country / Region"
+              className="bg-[#050816] border border-white/10 rounded-xl p-4 text-white"
+            />
+
+            <select
+              className="bg-[#050816] border border-white/10 rounded-xl p-4 text-white"
+            >
+              <option>Select Intelligence Product</option>
+              <option>Sovereign Risk Assessment</option>
+              <option>Mining Asset Due Diligence</option>
+              <option>Strategic Minerals Intelligence</option>
+              <option>ESG Risk Assessment</option>
+              <option>Beneficial Ownership Investigation</option>
+              <option>Political Risk Intelligence</option>
+              <option>Infrastructure Corridor Intelligence</option>
+            </select>
+
+          </div>
+
+          <textarea
+            rows="6"
+            placeholder="Describe your intelligence requirement..."
+            className="w-full mt-6 bg-[#050816] border border-white/10 rounded-xl p-4 text-white"
+          ></textarea>
+
+          <button
+            className="mt-6 bg-rose-500 hover:bg-rose-600 transition px-8 py-4 rounded-xl font-bold"
+          >
+            Submit Intelligence Request
+          </button>
+        </div>
+      </section>
 
       <section
         id="heatmap"
