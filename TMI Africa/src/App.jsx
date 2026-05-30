@@ -504,6 +504,69 @@ export default function App() {
   </div>
 
 </section>
+      <section className="max-w-7xl mx-auto px-6 py-24">
+
+  <div className="mb-12">
+    <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+      REPORT LIBRARY
+    </p>
+
+    <h2 className="text-5xl font-black mb-6">
+      Strategic Intelligence Reports
+    </h2>
+
+    <p className="text-slate-400 max-w-4xl">
+      Access premium intelligence reports covering sovereign risk, strategic minerals, mining transactions, ESG exposure and infrastructure corridors across Africa.
+    </p>
+  </div>
+
+  <div className="grid md:grid-cols-3 gap-8">
+
+    <div className="bg-slate-900 border border-cyan-500/30 rounded-3xl p-8">
+      <h3 className="text-2xl font-black mb-4">
+        Zambia Copper Intelligence Report
+      </h3>
+
+      <p className="text-slate-300 mb-6">
+        Copper production outlook, strategic investments and sovereign risk trends.
+      </p>
+
+      <button className="bg-cyan-400 text-black font-bold px-6 py-3 rounded-xl">
+        Download Report
+      </button>
+    </div>
+
+    <div className="bg-slate-900 border border-amber-500/30 rounded-3xl p-8">
+      <h3 className="text-2xl font-black mb-4">
+        DRC Strategic Minerals Brief
+      </h3>
+
+      <p className="text-slate-300 mb-6">
+        Cobalt, lithium, copper and regulatory developments.
+      </p>
+
+      <button className="bg-amber-400 text-black font-bold px-6 py-3 rounded-xl">
+        Download Report
+      </button>
+    </div>
+
+    <div className="bg-slate-900 border border-rose-500/30 rounded-3xl p-8">
+      <h3 className="text-2xl font-black mb-4">
+        Africa Sovereign Risk Monitor
+      </h3>
+
+      <p className="text-slate-300 mb-6">
+        Political risk, investment climate and intervention analysis.
+      </p>
+
+      <button className="bg-rose-400 text-black font-bold px-6 py-3 rounded-xl">
+        Download Report
+      </button>
+    </div>
+
+  </div>
+
+</section>
     </main>
   );
 }
