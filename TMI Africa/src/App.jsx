@@ -1360,7 +1360,7 @@ export default function App() {
   </div>
 
 </section>
-<footer className="border-t border-white/10 mt-24">
+<footer id="contact" className="border-t border-white/10 mt-24">
 
   <div className="max-w-7xl mx-auto px-6 py-16">
 
