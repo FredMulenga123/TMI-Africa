@@ -992,7 +992,70 @@ export default function App() {
 
   </div>
 
-</section>      
+</section> 
+<section className="max-w-7xl mx-auto px-6 py-24">
+
+  <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+    LICENCE INTELLIGENCE
+  </p>
+
+  <h2 className="text-6xl font-black mb-6">
+    Mining Licence Registry
+  </h2>
+
+  <p className="text-slate-400 max-w-4xl mb-12">
+    Monitor active licences, ownership changes, licence disputes, suspensions and strategic mineral assets across Africa.
+  </p>
+
+  <div className="overflow-x-auto">
+
+    <table className="w-full bg-slate-900 rounded-3xl overflow-hidden">
+
+      <thead className="bg-slate-800">
+
+        <tr>
+          <th className="p-5 text-left">Licence ID</th>
+          <th className="p-5 text-left">Country</th>
+          <th className="p-5 text-left">Commodity</th>
+          <th className="p-5 text-left">Status</th>
+          <th className="p-5 text-left">Risk</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr className="border-t border-white/10">
+          <td className="p-5">ZM-CU-2026-014</td>
+          <td className="p-5">Zambia</td>
+          <td className="p-5">Copper</td>
+          <td className="p-5 text-green-400">Active</td>
+          <td className="p-5 text-green-400">Low</td>
+        </tr>
+
+        <tr className="border-t border-white/10">
+          <td className="p-5">DRC-AU-2026-102</td>
+          <td className="p-5">DRC</td>
+          <td className="p-5">Gold</td>
+          <td className="p-5 text-amber-400">Under Review</td>
+          <td className="p-5 text-amber-400">Moderate</td>
+        </tr>
+
+        <tr className="border-t border-white/10">
+          <td className="p-5">BF-LI-2026-008</td>
+          <td className="p-5">Burkina Faso</td>
+          <td className="p-5">Lithium</td>
+          <td className="p-5 text-red-400">Suspended</td>
+          <td className="p-5 text-red-400">High</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
 </main>
   );
 }
