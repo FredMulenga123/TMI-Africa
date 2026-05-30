@@ -457,6 +457,53 @@ export default function App() {
   </div>
 
 </section>
+      <section className="max-w-7xl mx-auto px-6 py-24">
+
+  <div className="mb-12">
+    <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+      CLIENT PORTAL
+    </p>
+
+    <h2 className="text-5xl font-black mb-6">
+      Intelligence Operations Dashboard
+    </h2>
+
+    <p className="text-slate-400 max-w-4xl">
+      Monitor sovereign risk, strategic minerals, political developments, distressed mining assets and intelligence alerts from a unified command center.
+    </p>
+  </div>
+
+  <div className="grid md:grid-cols-2 gap-8">
+
+    <div className="bg-slate-900 border border-cyan-500/30 rounded-3xl p-8">
+      <h3 className="text-2xl font-black mb-6">
+        Watchlists
+      </h3>
+
+      <ul className="space-y-3 text-slate-300">
+        <li>• Zambia Copperbelt</li>
+        <li>• DRC Strategic Minerals</li>
+        <li>• Burkina Faso Sovereign Risk</li>
+        <li>• Lobito Corridor</li>
+      </ul>
+    </div>
+
+    <div className="bg-slate-900 border border-rose-500/30 rounded-3xl p-8">
+      <h3 className="text-2xl font-black mb-6">
+        Active Intelligence Alerts
+      </h3>
+
+      <ul className="space-y-3 text-slate-300">
+        <li>• Licence Suspension Alerts</li>
+        <li>• Political Risk Alerts</li>
+        <li>• ESG Compliance Alerts</li>
+        <li>• Strategic Mineral Alerts</li>
+      </ul>
+    </div>
+
+  </div>
+
+</section>
     </main>
   );
 }
