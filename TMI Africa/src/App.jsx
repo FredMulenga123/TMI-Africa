@@ -1,5 +1,4 @@
-import React from "react";
-
+import React from "react"; 
 export default function App() {
   return (
     <main className="min-h-screen bg-[#050816] text-white">
