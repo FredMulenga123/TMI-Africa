@@ -188,7 +188,7 @@ export default function App() {
         id="analytics"
         className="max-w-7xl mx-auto px-6 pb-24"
       >
-        <div className="grid md:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-4 gap-6 mt-10">
 
           <div className="bg-white/5 border border-white/10 rounded-3xl p-8-cyan-400/40 transition-all">
             <p className="text-slate-400 mb-4">
