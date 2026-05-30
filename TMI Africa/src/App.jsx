@@ -1260,6 +1260,65 @@ export default function App() {
   </div>
 
 </section>
+<section className="max-w-7xl mx-auto px-6 py-24">
+
+  <p className="text-rose-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+    GOVERNANCE INTELLIGENCE
+  </p>
+
+  <h2 className="text-6xl font-black mb-6">
+    Africa Mining Governance Heatmap
+  </h2>
+
+  <p className="text-slate-400 max-w-4xl mb-12">
+    Monitor governance quality, regulatory stability, licence transparency and mining sector intervention risk across African jurisdictions.
+  </p>
+
+  <div className="grid md:grid-cols-4 gap-6">
+
+    <div className="bg-slate-900 border border-green-500 rounded-3xl p-8">
+      <h3 className="text-2xl font-black mb-4">Botswana</h3>
+      <div className="text-5xl font-black text-green-400 mb-2">
+        92
+      </div>
+      <p className="text-green-400 font-bold">
+        STRONG
+      </p>
+    </div>
+
+    <div className="bg-slate-900 border border-cyan-500 rounded-3xl p-8">
+      <h3 className="text-2xl font-black mb-4">Zambia</h3>
+      <div className="text-5xl font-black text-cyan-400 mb-2">
+        78
+      </div>
+      <p className="text-cyan-400 font-bold">
+        STABLE
+      </p>
+    </div>
+
+    <div className="bg-slate-900 border border-amber-500 rounded-3xl p-8">
+      <h3 className="text-2xl font-black mb-4">DRC</h3>
+      <div className="text-5xl font-black text-amber-400 mb-2">
+        54
+      </div>
+      <p className="text-amber-400 font-bold">
+        WATCH
+      </p>
+    </div>
+
+    <div className="bg-slate-900 border border-red-500 rounded-3xl p-8">
+      <h3 className="text-2xl font-black mb-4">Burkina Faso</h3>
+      <div className="text-5xl font-black text-red-400 mb-2">
+        42
+      </div>
+      <p className="text-red-400 font-bold">
+        HIGH RISK
+      </p>
+    </div>
+
+  </div>
+
+</section>
 </main>
   );
 }
