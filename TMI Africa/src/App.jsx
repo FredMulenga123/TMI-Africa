@@ -65,7 +65,7 @@ export default function App() {
           infrastructure corridor intelligence and ESG risk assessments.
         </p>
 
-        <div className="bg-slate-900 border border-white/10 rounded-3xl p-8"hover:border-cyan-400/40 transition-all">
+        <div className="bg-slate-900 border border-white/10 rounded-3xl p-8 hover:border-cyan-400/40 transition-all">
           <div className="grid md:grid-cols-2 gap-6">
 
             <input
