@@ -121,12 +121,16 @@ export default function App() {
       >
         <div className="mb-12">
           <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
-            AFRICA RISK HEATMAP
-          </p>
+  AFRICA RISK HEATMAP
+</p>
 
-          <h3 className="text-4xl font-black">
-            Sovereign Mining Intelligence Zones
-          </h3>
+<h2 className="text-5xl font-black mb-6">
+  Sovereign Mining Intelligence Zones
+</h2>
+
+<p className="text-slate-400 max-w-4xl mb-12">
+  Monitor sovereign mining risk, strategic minerals exposure, mining corridor developments and intervention activity across Africa.
+</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -259,18 +263,16 @@ export default function App() {
 
 <section className="max-w-7xl mx-auto px-6 py-24">
   <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
-    LICENCES & CONCESSIONS DATABASE
-  </p>
+  LICENCES & CONCESSIONS DATABASE
+</p>
 
-  <h2 className="text-5xl font-black mb-6">
-    Strategic Mining Assets
-  </h2>
+<h2 className="text-5xl font-black mb-6">
+  Strategic Mining Assets
+</h2>
 
-  <p className="text-slate-400 max-w-4xl mb-12">
-    Monitor mining licences, concession ownership, strategic minerals exposure,
-    sovereign risk and asset status across Africa.
-  </p>
-
+<p className="text-slate-400 max-w-4xl mb-12">
+  Monitor mining licences, concession ownership, strategic minerals exposure, sovereign risk and asset status across Africa.
+</p>
   <div className="grid md:grid-cols-3 gap-6">
 
     <div className="bg-slate-900 border border-white/10 rounded-3xl p-6">
