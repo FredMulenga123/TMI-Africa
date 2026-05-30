@@ -133,7 +133,7 @@ export default function App() {
 </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
 
           <div className="bg-red-500/10 border border-red-500 rounded-3xl p-8">
             <div className="flex justify-between mb-6">
