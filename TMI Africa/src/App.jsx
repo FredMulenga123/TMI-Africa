@@ -567,6 +567,127 @@ export default function App() {
   </div>
 
 </section>
+      <section className="max-w-7xl mx-auto px-6 py-24">
+
+  <div className="mb-12">
+    <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+      INTELLIGENCE BRIEFING CENTER
+    </p>
+
+    <h2 className="text-5xl font-black mb-6">
+      Latest Intelligence Briefings
+    </h2>
+
+    <p className="text-slate-400 max-w-4xl">
+      Daily and weekly intelligence updates covering strategic minerals, sovereign risk, mining investments, political developments and infrastructure corridors across Africa.
+    </p>
+  </div>
+
+  <div className="grid md:grid-cols-2 gap-8">
+
+    <div className="bg-slate-900 border border-cyan-500/30 rounded-3xl p-8">
+      <div className="flex justify-between mb-6">
+        <span className="text-cyan-400 font-bold">Copper Intelligence</span>
+        <span className="bg-green-500 text-black px-3 py-1 rounded-full text-xs font-bold">
+          LOW RISK
+        </span>
+      </div>
+
+      <h3 className="text-2xl font-black mb-4">
+        Zambia Copperbelt Weekly Brief
+      </h3>
+
+      <p className="text-slate-300 mb-4">
+        Updated analysis of copper production, investment activity and strategic developments.
+      </p>
+
+      <p className="text-slate-500 mb-6">
+        Published: 29 May 2026
+      </p>
+
+      <button className="bg-cyan-400 text-black font-bold px-6 py-3 rounded-xl">
+        Read Brief
+      </button>
+    </div>
+
+    <div className="bg-slate-900 border border-rose-500/30 rounded-3xl p-8">
+      <div className="flex justify-between mb-6">
+        <span className="text-rose-400 font-bold">Strategic Minerals</span>
+        <span className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+          HIGH RISK
+        </span>
+      </div>
+
+      <h3 className="text-2xl font-black mb-4">
+        DRC Strategic Minerals Alert
+      </h3>
+
+      <p className="text-slate-300 mb-4">
+        Regulatory interventions, licence suspensions and strategic minerals exposure assessment.
+      </p>
+
+      <p className="text-slate-500 mb-6">
+        Published: 29 May 2026
+      </p>
+
+      <button className="bg-rose-400 text-black font-bold px-6 py-3 rounded-xl">
+        Read Brief
+      </button>
+    </div>
+
+    <div className="bg-slate-900 border border-amber-500/30 rounded-3xl p-8">
+      <div className="flex justify-between mb-6">
+        <span className="text-amber-400 font-bold">Infrastructure</span>
+        <span className="bg-yellow-400 text-black px-3 py-1 rounded-full text-xs font-bold">
+          MODERATE
+        </span>
+      </div>
+
+      <h3 className="text-2xl font-black mb-4">
+        Lobito Corridor Intelligence Update
+      </h3>
+
+      <p className="text-slate-300 mb-4">
+        Corridor expansion, logistics intelligence and strategic transport developments.
+      </p>
+
+      <p className="text-slate-500 mb-6">
+        Published: 28 May 2026
+      </p>
+
+      <button className="bg-amber-400 text-black font-bold px-6 py-3 rounded-xl">
+        Read Brief
+      </button>
+    </div>
+
+    <div className="bg-slate-900 border border-purple-500/30 rounded-3xl p-8">
+      <div className="flex justify-between mb-6">
+        <span className="text-purple-400 font-bold">Political Risk</span>
+        <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+          WATCH
+        </span>
+      </div>
+
+      <h3 className="text-2xl font-black mb-4">
+        Africa Political Risk Watch
+      </h3>
+
+      <p className="text-slate-300 mb-4">
+        Elections, regulatory changes and sovereign risk developments affecting investors.
+      </p>
+
+      <p className="text-slate-500 mb-6">
+        Published: 28 May 2026
+      </p>
+
+      <button className="bg-purple-400 text-black font-bold px-6 py-3 rounded-xl">
+        Read Brief
+      </button>
+    </div>
+
+  </div>
+
+</section>
     </main>
   );
 }
