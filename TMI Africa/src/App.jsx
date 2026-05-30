@@ -929,6 +929,70 @@ export default function App() {
   </div>
 
 </section>
+<section className="max-w-7xl mx-auto px-6 py-24">
+
+  <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+    LIVE INTELLIGENCE
+  </p>
+
+  <h2 className="text-6xl font-black mb-6">
+    Breaking Intelligence Feed
+  </h2>
+
+  <p className="text-slate-400 max-w-4xl mb-12">
+    Monitor real-time regulatory developments, mining licence actions, strategic minerals events and political risk alerts.
+  </p>
+
+  <div className="space-y-6">
+
+    <div className="bg-red-500/10 border border-red-500 rounded-3xl p-6">
+      <div className="flex justify-between items-center">
+        <h3 className="text-xl font-black text-red-400">
+          DRC Mining Suspension Alert
+        </h3>
+        <span className="text-red-400 font-bold">
+          15 MIN AGO
+        </span>
+      </div>
+
+      <p className="text-slate-300 mt-3">
+        Mining activity suspension monitoring remains active in strategic minerals zones.
+      </p>
+    </div>
+
+    <div className="bg-amber-500/10 border border-amber-500 rounded-3xl p-6">
+      <div className="flex justify-between items-center">
+        <h3 className="text-xl font-black text-amber-400">
+          Lobito Corridor Update
+        </h3>
+        <span className="text-amber-400 font-bold">
+          1 HOUR AGO
+        </span>
+      </div>
+
+      <p className="text-slate-300 mt-3">
+        Infrastructure and logistics intelligence monitoring remains active.
+      </p>
+    </div>
+
+    <div className="bg-cyan-500/10 border border-cyan-500 rounded-3xl p-6">
+      <div className="flex justify-between items-center">
+        <h3 className="text-xl font-black text-cyan-400">
+          Zambia Copperbelt Intelligence
+        </h3>
+        <span className="text-cyan-400 font-bold">
+          3 HOURS AGO
+        </span>
+      </div>
+
+      <p className="text-slate-300 mt-3">
+        Strategic minerals and investment monitoring remain active.
+      </p>
+    </div>
+
+  </div>
+
+</section>      
 </main>
   );
 }
