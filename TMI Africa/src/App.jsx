@@ -347,6 +347,116 @@ export default function App() {
 
   </div>
 </section>
+      <section className="max-w-7xl mx-auto px-6 py-24">
+
+  <div className="mb-12">
+    <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+      INTELLIGENCE PRODUCTS
+    </p>
+
+    <h2 className="text-5xl font-black mb-6">
+      TerraNova Intelligence Marketplace
+    </h2>
+
+    <p className="text-slate-400 max-w-4xl">
+      Access premium intelligence products covering sovereign risk, strategic minerals, ESG exposure, political instability, beneficial ownership and infrastructure corridor monitoring across Africa.
+    </p>
+  </div>
+
+  <div className="grid md:grid-cols-3 gap-8">
+
+    <div className="bg-slate-900 border border-cyan-500/30 rounded-3xl p-8 hover:border-cyan-400 transition-all">
+      <h3 className="text-2xl font-black mb-4">
+        Sovereign Risk Assessment
+      </h3>
+
+      <p className="text-slate-300 mb-6">
+        Political stability, regulatory intervention, sovereign exposure and investment risk monitoring.
+      </p>
+
+      <div className="text-cyan-400 font-bold">
+        Premium Intelligence
+      </div>
+    </div>
+
+    <div className="bg-slate-900 border border-rose-500/30 rounded-3xl p-8 hover:border-rose-400 transition-all">
+      <h3 className="text-2xl font-black mb-4">
+        Mining Asset Due Diligence
+      </h3>
+
+      <p className="text-slate-300 mb-6">
+        Ownership investigations, licence verification, compliance reviews and risk scoring.
+      </p>
+
+      <div className="text-rose-400 font-bold">
+        Institutional Product
+      </div>
+    </div>
+
+    <div className="bg-slate-900 border border-amber-500/30 rounded-3xl p-8 hover:border-amber-400 transition-all">
+      <h3 className="text-2xl font-black mb-4">
+        Strategic Minerals Intelligence
+      </h3>
+
+      <p className="text-slate-300 mb-6">
+        Copper, cobalt, lithium, uranium, rare earths and battery mineral intelligence.
+      </p>
+
+      <div className="text-amber-400 font-bold">
+        Investor Intelligence
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section className="max-w-7xl mx-auto px-6 py-24">
+
+  <div className="mb-12">
+    <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+      SUBSCRIPTION ACCESS
+    </p>
+
+    <h2 className="text-5xl font-black mb-6">
+      Intelligence Membership Plans
+    </h2>
+  </div>
+
+  <div className="grid md:grid-cols-4 gap-8">
+
+    <div className="bg-slate-900 border border-white/10 rounded-3xl p-8">
+      <h3 className="text-2xl font-black mb-4">Explorer</h3>
+      <p className="text-slate-400 mb-6">Basic market monitoring</p>
+      <div className="text-4xl font-black text-cyan-400">$99</div>
+      <p className="text-slate-500 mt-2">per month</p>
+    </div>
+
+    <div className="bg-slate-900 border border-cyan-500 rounded-3xl p-8">
+      <h3 className="text-2xl font-black mb-4">Professional</h3>
+      <p className="text-slate-400 mb-6">Advanced intelligence access</p>
+      <div className="text-4xl font-black text-cyan-400">$299</div>
+      <p className="text-slate-500 mt-2">per month</p>
+    </div>
+
+    <div className="bg-slate-900 border border-amber-500 rounded-3xl p-8">
+      <h3 className="text-2xl font-black mb-4">Enterprise</h3>
+      <p className="text-slate-400 mb-6">Corporate monitoring suite</p>
+      <div className="text-4xl font-black text-amber-400">$999</div>
+      <p className="text-slate-500 mt-2">per month</p>
+    </div>
+
+    <div className="bg-slate-900 border border-rose-500 rounded-3xl p-8">
+      <h3 className="text-2xl font-black mb-4">Government & DFI</h3>
+      <p className="text-slate-400 mb-6">Custom institutional package</p>
+      <div className="text-4xl font-black text-rose-400">
+        Custom
+      </div>
+      <p className="text-slate-500 mt-2">contact sales</p>
+    </div>
+
+  </div>
+
+</section>
     </main>
   );
 }
