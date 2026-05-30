@@ -422,7 +422,7 @@ export default function App() {
     </h2>
   </div>
 
-  <div className="grid md:grid-cols-4 gap-8">
+  <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
 
     <div className="bg-slate-900 border border-white/10 rounded-3xl p-8">
       <h3 className="text-2xl font-black mb-4">Explorer</h3>
