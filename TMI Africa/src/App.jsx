@@ -1187,6 +1187,79 @@ export default function App() {
   </div>
 
 </section>
+<section className="max-w-7xl mx-auto px-6 py-24">
+
+  <p className="text-amber-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+    DEAL INTELLIGENCE
+  </p>
+
+  <h2 className="text-6xl font-black mb-6">
+    Strategic Minerals Transaction Monitor
+  </h2>
+
+  <p className="text-slate-400 max-w-4xl mb-12">
+    Track mergers, acquisitions, financing rounds, joint ventures and strategic mineral transactions across Africa.
+  </p>
+
+  <div className="grid md:grid-cols-3 gap-8">
+
+    <div className="bg-slate-900 border border-cyan-500 rounded-3xl p-8">
+      <p className="text-cyan-400 font-bold mb-4">
+        COPPER TRANSACTION
+      </p>
+
+      <h3 className="text-3xl font-black mb-4">
+        Zambia Copper JV
+      </h3>
+
+      <p className="text-slate-300 mb-6">
+        Strategic investment partnership targeting Copperbelt expansion.
+      </p>
+
+      <div className="text-4xl font-black text-cyan-400">
+        $500M
+      </div>
+    </div>
+
+    <div className="bg-slate-900 border border-amber-500 rounded-3xl p-8">
+      <p className="text-amber-400 font-bold mb-4">
+        LITHIUM ACQUISITION
+      </p>
+
+      <h3 className="text-3xl font-black mb-4">
+        Sahel Lithium Deal
+      </h3>
+
+      <p className="text-slate-300 mb-6">
+        Acquisition of strategic lithium assets under review.
+      </p>
+
+      <div className="text-4xl font-black text-amber-400">
+        $230M
+      </div>
+    </div>
+
+    <div className="bg-slate-900 border border-rose-500 rounded-3xl p-8">
+      <p className="text-rose-400 font-bold mb-4">
+        COBALT FINANCING
+      </p>
+
+      <h3 className="text-3xl font-black mb-4">
+        Katanga Expansion
+      </h3>
+
+      <p className="text-slate-300 mb-6">
+        Financing package supporting critical minerals development.
+      </p>
+
+      <div className="text-4xl font-black text-rose-400">
+        $750M
+      </div>
+    </div>
+
+  </div>
+
+</section>
 </main>
   );
 }
