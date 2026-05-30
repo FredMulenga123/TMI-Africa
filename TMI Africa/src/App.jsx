@@ -1319,6 +1319,45 @@ export default function App() {
   </div>
 
 </section>
+<section className="max-w-7xl mx-auto px-6 py-24">
+
+  <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+    CRITICAL MINERALS DASHBOARD
+  </p>
+
+  <h2 className="text-6xl font-black mb-6">
+    Africa Critical Minerals Dashboard
+  </h2>
+
+  <p className="text-slate-400 max-w-4xl mb-12">
+    Monitor strategic mineral exposure, production corridors and investment opportunities across Africa.
+  </p>
+
+  <div className="grid md:grid-cols-4 gap-6">
+
+    <div className="bg-slate-900 border border-cyan-500 rounded-3xl p-8">
+      <p className="text-slate-500 mb-2">Copper Assets</p>
+      <h3 className="text-5xl font-black text-cyan-400">126</h3>
+    </div>
+
+    <div className="bg-slate-900 border border-amber-500 rounded-3xl p-8">
+      <p className="text-slate-500 mb-2">Lithium Assets</p>
+      <h3 className="text-5xl font-black text-amber-400">48</h3>
+    </div>
+
+    <div className="bg-slate-900 border border-rose-500 rounded-3xl p-8">
+      <p className="text-slate-500 mb-2">Cobalt Assets</p>
+      <h3 className="text-5xl font-black text-rose-400">72</h3>
+    </div>
+
+    <div className="bg-slate-900 border border-green-500 rounded-3xl p-8">
+      <p className="text-slate-500 mb-2">Investment Pipeline</p>
+      <h3 className="text-5xl font-black text-green-400">$8.2B</h3>
+    </div>
+
+  </div>
+
+</section>
 </main>
   );
 }
