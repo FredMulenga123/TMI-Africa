@@ -886,7 +886,49 @@ export default function App() {
 </div>
 
 </section>
+<section className="max-w-7xl mx-auto px-6 py-24">
 
+  <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+    RISK INDEX
+  </p>
+
+  <h2 className="text-6xl font-black mb-6">
+    Africa Sovereign Risk Monitor
+  </h2>
+
+  <p className="text-slate-400 max-w-4xl mb-12">
+    Monitor sovereign stability, regulatory intervention, political exposure and mining investment risk across strategic African jurisdictions.
+  </p>
+
+  <div className="grid md:grid-cols-4 gap-6">
+
+    <div className="bg-slate-900 border border-red-500 rounded-3xl p-8">
+      <p className="text-slate-400 mb-2">DRC</p>
+      <h3 className="text-5xl font-black text-red-400">82</h3>
+      <p className="text-red-400 mt-2">HIGH RISK</p>
+    </div>
+
+    <div className="bg-slate-900 border border-orange-500 rounded-3xl p-8">
+      <p className="text-slate-400 mb-2">Burkina Faso</p>
+      <h3 className="text-5xl font-black text-orange-400">74</h3>
+      <p className="text-orange-400 mt-2">ELEVATED</p>
+    </div>
+
+    <div className="bg-slate-900 border border-yellow-500 rounded-3xl p-8">
+      <p className="text-slate-400 mb-2">Zambia</p>
+      <h3 className="text-5xl font-black text-yellow-400">41</h3>
+      <p className="text-yellow-400 mt-2">MODERATE</p>
+    </div>
+
+    <div className="bg-slate-900 border border-green-500 rounded-3xl p-8">
+      <p className="text-slate-400 mb-2">Botswana</p>
+      <h3 className="text-5xl font-black text-green-400">18</h3>
+      <p className="text-green-400 mt-2">LOW RISK</p>
+    </div>
+
+  </div>
+
+</section>
 </main>
   );
 }
