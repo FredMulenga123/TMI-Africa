@@ -1358,6 +1358,70 @@ export default function App() {
   </div>
 
 </section>
+<footer className="border-t border-white/10 mt-24">
+
+  <div className="max-w-7xl mx-auto px-6 py-16">
+
+    <div className="grid md:grid-cols-4 gap-12">
+
+      <div>
+        <h3 className="text-3xl font-black text-rose-500 mb-4">
+          TerraNova
+        </h3>
+
+        <p className="text-slate-400">
+          African mining intelligence, sovereign risk monitoring and strategic minerals analytics.
+        </p>
+      </div>
+
+      <div>
+        <h4 className="font-bold mb-4">
+          Intelligence
+        </h4>
+
+        <ul className="space-y-2 text-slate-400">
+          <li>Sovereign Risk</li>
+          <li>Strategic Minerals</li>
+          <li>Mining Governance</li>
+          <li>Ownership Intelligence</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 className="font-bold mb-4">
+          Products
+        </h4>
+
+        <ul className="space-y-2 text-slate-400">
+          <li>Reports</li>
+          <li>API Access</li>
+          <li>Membership Plans</li>
+          <li>Due Diligence</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 className="font-bold mb-4">
+          Contact
+        </h4>
+
+        <ul className="space-y-2 text-slate-400">
+          <li>fred.mulenga@zerb.co.zm</li>
+          <li>+260 760 612 073</li>
+          <li>0961 863 010</li>
+          <li>tmi.africa</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div className="border-t border-white/10 mt-12 pt-8 text-slate-500 text-sm">
+      © 2026 TerraNova Mining Intelligence. All Rights Reserved.
+    </div>
+
+  </div>
+
+</footer>
 </main>
   );
 }
