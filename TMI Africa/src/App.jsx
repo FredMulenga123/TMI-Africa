@@ -872,8 +872,24 @@ export default function App() {
     </div>
 
     <div className="bg-slate-900 border border-green-500/30 rounded-3xl p-8">
-      <p className="text-slate-500 mb-2">Completed</p>
-      <h3 className="text-5xl font-black
+  <p className="text-slate-500 mb-2">Completed</p>
+  <h3 className="text-5xl font-black text-green-400">187</h3>
+</div>
+
+<div className="bg-slate-900 border border-rose-500/30 rounded-3xl p-8">
+  <p className="text-slate-500 mb-2">Urgent Cases</p>
+  <h3 className="text-5xl font-black text-rose-400">4</h3>
+</div>
+
+  </div>
+
+</div>
+
+</section>
+
+</main>
+  );
+}
 </section>
     </main>
   );
