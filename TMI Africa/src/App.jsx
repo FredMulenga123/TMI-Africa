@@ -890,7 +890,3 @@ export default function App() {
 </main>
   );
 }
-</section>
-    </main>
-  );
-}
