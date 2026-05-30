@@ -1323,7 +1323,10 @@ export default function App() {
   <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
     CRITICAL MINERALS DASHBOARD
   </p>
-
+<section
+  id="analytics"
+  className="max-w-7xl mx-auto px-6 py-24"
+>
   <h2 className="text-6xl font-black mb-6">
     Africa Critical Minerals Dashboard
   </h2>
