@@ -149,7 +149,7 @@ export default function App() {
             </p>
           </div>
 
-          <div className="bg-orange-500/10 border border-orange-500 rounded-3xl p-8"hover:border-cyan-400/40 transition-all">
+          <div className="bg-orange-500/10 border border-orange-500 rounded-3xl p-8-cyan-400/40 transition-all">
             <div className="flex justify-between mb-6">
               <h4 className="text-3xl font-black">
                 Burkina Faso
@@ -165,7 +165,7 @@ export default function App() {
             </p>
           </div>
 
-          <div className="bg-yellow-500/10 border border-yellow-400 rounded-3xl p-8"hover:border-cyan-400/40 transition-all">
+          <div className="bg-yellow-500/10 border border-yellow-400 rounded-3xl p-8-cyan-400/40 transition-all">
             <div className="flex justify-between mb-6">
               <h4 className="text-3xl font-black">
                 Zambia
@@ -190,7 +190,7 @@ export default function App() {
       >
         <div className="grid md:grid-cols-4 gap-6">
 
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-8"hover:border-cyan-400/40 transition-all">
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-8-cyan-400/40 transition-all">
             <p className="text-slate-400 mb-4">
               Licence Records
             </p>
@@ -200,7 +200,7 @@ export default function App() {
             </h4>
           </div>
 
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-8"hover:border-cyan-400/40 transition-all">
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-8-cyan-400/40 transition-all">
             <p className="text-slate-400 mb-4">
               High Risk Assets
             </p>
@@ -210,7 +210,7 @@ export default function App() {
             </h4>
           </div>
 
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-8"hover:border-cyan-400/40 transition-all">
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-8-cyan-400/40 transition-all">
             <p className="text-slate-400 mb-4">
               Strategic Minerals
             </p>
@@ -220,7 +220,7 @@ export default function App() {
             </h4>
           </div>
 
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-8"hover:border-cyan-400/40 transition-all">
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-8-cyan-400/40 transition-all">
             <p className="text-slate-400 mb-4">
               Avg Opportunity
             </p>
@@ -237,7 +237,7 @@ export default function App() {
         id="contact"
         className="max-w-7xl mx-auto px-6 pb-24"
       >
-        <div className="bg-cyan-500/10 border border-cyan-500/20 rounded-[32px] p-12"hover:border-cyan-400/40 transition-all">
+        <div className="bg-cyan-500/10 border border-cyan-500/20 rounded-[32px] p-12-cyan-400/40 transition-all">
 
           <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
             REQUEST ACCESS
@@ -279,7 +279,7 @@ export default function App() {
 </div>
   <div className="grid md:grid-cols-3 gap-6">
 
-    <div className="bg-slate-900 border border-white/10 rounded-3xl p-6"hover:border-cyan-400/40 transition-all">
+    <div className="bg-slate-900 border border-white/10 rounded-3xl p-6-cyan-400/40 transition-all">
       <h3 className="text-xl font-bold text-amber-300">
         ZM-CU-2026-014
       </h3>
@@ -301,7 +301,7 @@ export default function App() {
       </p>
     </div>
 
-    <div className="bg-slate-900 border border-white/10 rounded-3xl p-6"hover:border-cyan-400/40 transition-all">
+    <div className="bg-slate-900 border border-white/10 rounded-3xl p-6-cyan-400/40 transition-all">
       <h3 className="text-xl font-bold text-yellow-300">
         DRC-AU-2026-102
       </h3>
@@ -323,7 +323,7 @@ export default function App() {
       </p>
     </div>
 
-    <div className="bg-slate-900 border border-white/10 rounded-3xl p-6"hover:border-cyan-400/40 transition-all">
+    <div className="bg-slate-900 border border-white/10 rounded-3xl p-6-cyan-400/40 transition-all">
       <h3 className="text-xl font-bold text-rose-300">
         BF-LI-2026-008
       </h3>
