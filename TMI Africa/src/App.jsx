@@ -688,6 +688,165 @@ export default function App() {
   </div>
 
 </section>
+      <section className="max-w-7xl mx-auto px-6 py-24">
+
+  <div className="mb-12">
+    <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+      DATA PRODUCTS & API ACCESS
+    </p>
+
+    <h2 className="text-5xl font-black mb-6">
+      TerraNova Intelligence Infrastructure
+    </h2>
+
+    <p className="text-slate-400 max-w-4xl">
+      Connect directly to TerraNova intelligence feeds, sovereign risk datasets, strategic minerals monitoring systems and mining asset databases through enterprise-grade API access.
+    </p>
+  </div>
+
+  <div className="grid md:grid-cols-3 gap-8 mb-16">
+
+    <div className="bg-slate-900 border border-cyan-500/30 rounded-3xl p-8">
+      <h3 className="text-2xl font-black mb-6">
+        Strategic Minerals API
+      </h3>
+
+      <ul className="space-y-3 text-slate-300">
+        <li>• Copper Intelligence</li>
+        <li>• Cobalt Intelligence</li>
+        <li>• Lithium Monitoring</li>
+        <li>• Uranium Intelligence</li>
+        <li>• Rare Earth Tracking</li>
+      </ul>
+    </div>
+
+    <div className="bg-slate-900 border border-rose-500/30 rounded-3xl p-8">
+      <h3 className="text-2xl font-black mb-6">
+        Sovereign Risk API
+      </h3>
+
+      <ul className="space-y-3 text-slate-300">
+        <li>• Country Risk Scores</li>
+        <li>• Political Risk Alerts</li>
+        <li>• Regulatory Monitoring</li>
+        <li>• Election Intelligence</li>
+        <li>• Stability Indicators</li>
+      </ul>
+    </div>
+
+    <div className="bg-slate-900 border border-amber-500/30 rounded-3xl p-8">
+      <h3 className="text-2xl font-black mb-6">
+        Mining Asset Database API
+      </h3>
+
+      <ul className="space-y-3 text-slate-300">
+        <li>• Mining Licences</li>
+        <li>• Concessions Database</li>
+        <li>• Beneficial Ownership</li>
+        <li>• Asset Risk Scores</li>
+        <li>• Due Diligence Records</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div className="mb-12">
+    <h3 className="text-4xl font-black mb-6">
+      Client Integrations
+    </h3>
+
+    <div className="grid md:grid-cols-5 gap-6">
+
+      <div className="bg-slate-900 border border-white/10 rounded-2xl p-6 text-center">
+        Banks
+      </div>
+
+      <div className="bg-slate-900 border border-white/10 rounded-2xl p-6 text-center">
+        DFIs
+      </div>
+
+      <div className="bg-slate-900 border border-white/10 rounded-2xl p-6 text-center">
+        Mining Companies
+      </div>
+
+      <div className="bg-slate-900 border border-white/10 rounded-2xl p-6 text-center">
+        Governments
+      </div>
+
+      <div className="bg-slate-900 border border-white/10 rounded-2xl p-6 text-center">
+        Investors
+      </div>
+
+    </div>
+  </div>
+
+  <div>
+    <h3 className="text-4xl font-black mb-8">
+      API Access Plans
+    </h3>
+
+    <div className="grid md:grid-cols-4 gap-8">
+
+      <div className="bg-slate-900 border border-cyan-500/30 rounded-3xl p-8">
+        <h4 className="text-2xl font-black mb-4">
+          API Starter
+        </h4>
+
+        <div className="text-4xl font-black text-cyan-400 mb-2">
+          $499
+        </div>
+
+        <p className="text-slate-500">
+          per month
+        </p>
+      </div>
+
+      <div className="bg-slate-900 border border-cyan-500 rounded-3xl p-8">
+        <h4 className="text-2xl font-black mb-4">
+          Professional API
+        </h4>
+
+        <div className="text-4xl font-black text-cyan-400 mb-2">
+          $1,999
+        </div>
+
+        <p className="text-slate-500">
+          per month
+        </p>
+      </div>
+
+      <div className="bg-slate-900 border border-amber-500 rounded-3xl p-8">
+        <h4 className="text-2xl font-black mb-4">
+          Enterprise API
+        </h4>
+
+        <div className="text-4xl font-black text-amber-400 mb-2">
+          Custom
+        </div>
+
+        <p className="text-slate-500">
+          enterprise pricing
+        </p>
+      </div>
+
+      <div className="bg-slate-900 border border-rose-500 rounded-3xl p-8">
+        <h4 className="text-2xl font-black mb-4">
+          Government & DFI
+        </h4>
+
+        <div className="text-4xl font-black text-rose-400 mb-2">
+          Custom
+        </div>
+
+        <p className="text-slate-500">
+          institutional pricing
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</section>
     </main>
   );
 }
