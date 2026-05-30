@@ -1056,6 +1056,76 @@ export default function App() {
   </div>
 
 </section>
+<section className="max-w-7xl mx-auto px-6 py-24">
+
+  <p className="text-rose-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+    DISTRESSED ASSETS
+  </p>
+
+  <h2 className="text-6xl font-black mb-6">
+    Distressed Mining Assets Registry
+  </h2>
+
+  <p className="text-slate-400 max-w-4xl mb-12">
+    Track suspended projects, distressed licences, ownership disputes and investment recovery opportunities across Africa.
+  </p>
+
+  <div className="grid md:grid-cols-3 gap-8">
+
+    <div className="bg-slate-900 border border-red-500 rounded-3xl p-8">
+      <div className="flex justify-between mb-6">
+        <h3 className="text-2xl font-black">DRC Copper Project</h3>
+        <span className="bg-red-500 text-white px-4 py-1 rounded-full text-xs font-bold">
+          HIGH RISK
+        </span>
+      </div>
+
+      <p className="text-slate-300 mb-6">
+        Licence review, ownership uncertainty and regulatory intervention.
+      </p>
+
+      <p className="text-slate-500">
+        Estimated Value: $420M
+      </p>
+    </div>
+
+    <div className="bg-slate-900 border border-amber-500 rounded-3xl p-8">
+      <div className="flex justify-between mb-6">
+        <h3 className="text-2xl font-black">Burkina Gold Asset</h3>
+        <span className="bg-amber-500 text-black px-4 py-1 rounded-full text-xs font-bold">
+          WATCH
+        </span>
+      </div>
+
+      <p className="text-slate-300 mb-6">
+        Sovereign intervention and ownership restructuring under review.
+      </p>
+
+      <p className="text-slate-500">
+        Estimated Value: $185M
+      </p>
+    </div>
+
+    <div className="bg-slate-900 border border-cyan-500 rounded-3xl p-8">
+      <div className="flex justify-between mb-6">
+        <h3 className="text-2xl font-black">Zambia Copper Asset</h3>
+        <span className="bg-cyan-500 text-black px-4 py-1 rounded-full text-xs font-bold">
+          OPPORTUNITY
+        </span>
+      </div>
+
+      <p className="text-slate-300 mb-6">
+        Expansion financing and strategic investment opportunity.
+      </p>
+
+      <p className="text-slate-500">
+        Estimated Value: $610M
+      </p>
+    </div>
+
+  </div>
+
+</section>
 </main>
   );
 }
