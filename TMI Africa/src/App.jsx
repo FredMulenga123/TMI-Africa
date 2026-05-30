@@ -845,7 +845,35 @@ export default function App() {
 
     </div>
   </div>
+<div className="mt-24">
 
+  <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+    CLIENT PORTAL
+  </p>
+
+  <h2 className="text-5xl font-black mb-6">
+    Intelligence Request Tracking
+  </h2>
+
+  <p className="text-slate-400 max-w-4xl mb-12">
+    Track intelligence requests, due diligence investigations, sovereign risk assessments and report delivery status in real time.
+  </p>
+
+  <div className="grid md:grid-cols-4 gap-6">
+
+    <div className="bg-slate-900 border border-cyan-500/30 rounded-3xl p-8">
+      <p className="text-slate-500 mb-2">Open Requests</p>
+      <h3 className="text-5xl font-black text-cyan-400">24</h3>
+    </div>
+
+    <div className="bg-slate-900 border border-amber-500/30 rounded-3xl p-8">
+      <p className="text-slate-500 mb-2">In Review</p>
+      <h3 className="text-5xl font-black text-amber-400">11</h3>
+    </div>
+
+    <div className="bg-slate-900 border border-green-500/30 rounded-3xl p-8">
+      <p className="text-slate-500 mb-2">Completed</p>
+      <h3 className="text-5xl font-black
 </section>
     </main>
   );
