@@ -1126,6 +1126,67 @@ export default function App() {
   </div>
 
 </section>
+<section className="max-w-7xl mx-auto px-6 py-24">
+
+  <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
+    OWNERSHIP INTELLIGENCE
+  </p>
+
+  <h2 className="text-6xl font-black mb-6">
+    Critical Minerals Ownership Map
+  </h2>
+
+  <p className="text-slate-400 max-w-4xl mb-12">
+    Monitor ownership structures, strategic investors, sovereign participation and beneficial ownership exposure across Africa's critical minerals sector.
+  </p>
+
+  <div className="overflow-x-auto">
+
+    <table className="w-full bg-slate-900 rounded-3xl overflow-hidden">
+
+      <thead className="bg-slate-800">
+        <tr>
+          <th className="text-left p-6">Asset</th>
+          <th className="text-left p-6">Country</th>
+          <th className="text-left p-6">Mineral</th>
+          <th className="text-left p-6">Owner</th>
+          <th className="text-left p-6">Exposure</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr className="border-t border-white/10">
+          <td className="p-6">Copperbelt Asset</td>
+          <td className="p-6">Zambia</td>
+          <td className="p-6">Copper</td>
+          <td className="p-6">Strategic Investor</td>
+          <td className="p-6 text-green-400">Low</td>
+        </tr>
+
+        <tr className="border-t border-white/10">
+          <td className="p-6">Katanga Project</td>
+          <td className="p-6">DRC</td>
+          <td className="p-6">Cobalt</td>
+          <td className="p-6">Consortium</td>
+          <td className="p-6 text-amber-400">Moderate</td>
+        </tr>
+
+        <tr className="border-t border-white/10">
+          <td className="p-6">Sahel Lithium Asset</td>
+          <td className="p-6">Burkina Faso</td>
+          <td className="p-6">Lithium</td>
+          <td className="p-6">State Linked Entity</td>
+          <td className="p-6 text-rose-400">High</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
 </main>
   );
 }
