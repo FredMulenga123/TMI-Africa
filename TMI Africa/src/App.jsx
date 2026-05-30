@@ -262,17 +262,21 @@ export default function App() {
       {/* PHASE 15 - LICENCES DATABASE */}
 
 <section className="max-w-7xl mx-auto px-6 py-24">
+  <div className="mb-12">
+
   <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold mb-4">
-  LICENCES & CONCESSIONS DATABASE
-</p>
+    LICENCES & CONCESSIONS DATABASE
+  </p>
 
-<h2 className="text-5xl font-black mb-6">
-  Strategic Mining Assets
-</h2>
+  <h2 className="text-5xl font-black mb-6">
+    Strategic Mining Assets
+  </h2>
 
-<p className="text-slate-400 max-w-4xl mb-12">
-  Monitor mining licences, concession ownership, strategic minerals exposure, sovereign risk and asset status across Africa.
-</p>
+  <p className="text-slate-400 max-w-4xl mb-12">
+    Monitor mining licences, concessions, ownership structures, strategic mineral exposure, sovereign risk and asset status across Africa.
+  </p>
+
+</div>
   <div className="grid md:grid-cols-3 gap-6">
 
     <div className="bg-slate-900 border border-white/10 rounded-3xl p-6">
